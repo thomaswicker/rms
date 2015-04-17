@@ -1,0 +1,544 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* PAUL IRISH BORDER BOX SIZING FIX -- apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+/* ################## END CSS RESET - DO NOT MODIFY ABOVE CODE ################## */
+
+
+.navbar-brand {
+	padding: 5px 0px 0px 0px;
+}
+
+html, body {
+ font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+}
+
+p {
+	line-height: 18px; 
+	padding: 5px 0;
+}
+
+ul {}
+
+li {
+	line-height: 18px;
+}
+
+a {
+	color: #09f;
+}
+
+a:hover { 
+	color: #fff; 
+	text-decoration: underline;
+}
+
+img { 
+	margin:10px;
+}
+
+img.border {
+	border: 1px solid #000;
+}
+
+img.fl { 
+	margin: 0 10px 30px 0;
+}
+
+img.fr { 
+	margin: 0 0 30px 10px;
+}
+
+ul{
+	margin: 0 0 10px 20px ;
+}
+
+ol{
+	margin: 0 0 10px 20px ;
+}
+
+/* ######## START DARK THEME CLASSES ######## */
+
+
+.bodyText {
+ 	font-family: Arial, Helvetica, sans-serif;
+ 	line-height: 1.3rem;
+}
+
+.bodyStationary {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	margin-bottom: 70px;
+}
+
+.bodyStationary-inner {
+}
+
+.row {
+	width: 100%;
+	margin: 20px 0px 20px 0px;
+}
+
+
+.grid-2-wrap{
+	margin: 20px 0;
+}
+
+.grid-2{
+	float: left;
+	width: 45.8%;
+	margin-right: 1%;
+	padding: 1%;
+	background-color: #42aae0;
+}
+
+.grid-4-wrap{
+	margin: 20px 0;
+}
+
+.grid-4{
+	float: left;
+	width: 21.8%;
+	margin-right: 1%;
+	padding: 1%;
+	background-color: #42aae0;
+}
+
+.grid-6-wrap{
+	margin: 20px 0;
+}
+
+.grid-6{
+	float: left;
+	width: 14.8%;
+	margin-right: 1%;
+	padding: 1%;
+	background-color: #42aae0;
+}
+
+.darkthemeheader {
+	font-size: 32px;
+	font-weight: 300;
+	font-family: 'Lato', sans-serif;
+}
+
+.darkthemeheader span {
+	font-size: 32px;
+	font-weight: 300;
+	font-family: 'Lato', sans-serif;
+	color: #42aae0;
+}
+
+.main-dark h1 {
+	font-size: 30px; 
+	padding-bottom: 5px; 
+	margin-bottom: 20px; 
+	color: #fff; 
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+}
+
+.main-dark h1 span {
+	color: #42aae0;
+	font-style: italic;
+}
+
+.main-dark h2 {
+	font-size: 26px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	font-family: 'Lato', sans-serif;
+}
+
+.main-dark h3 {
+	font-size: 24px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	font-family: 'Lato', sans-serif;
+}
+
+.main-dark h3 span {
+	color: #42aae0;
+	font-style: italic;
+}
+
+.main-dark h4 {
+	font-size: 20px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	font-family: 'Lato', sans-serif;
+}
+
+
+.main-dark h5 {
+	font-size: 18px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	font-family: 'Lato', sans-serif;
+}
+
+
+.main-dark h6 {
+	font-size: 14px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	font-family: 'Lato', sans-serif;
+}
+
+.main-dark { 
+	background-color: #333333;
+	color:#eeeeee;
+	padding: 20px 40px 40px 40px;
+	margin: 30px 0;
+}	
+
+.main-dark-left{
+	width:450px;
+	float:left;
+}
+
+.main-dark-right{
+	width:450px;
+	float:right;
+}
+
+.main-dark ul{
+	padding:0 14px;
+	list-style:disc;
+}
+
+.main-dark ol{
+	padding:0 14px;
+	list-style:decimal;
+}
+
+.main-dark li{
+	line-height:18px;
+}
+
+.main-dark a{
+	color: #42aae0;
+}
+
+.main-dark a:hover{
+	color: #1b7ba1;
+}
+
+.main-dark table{
+	border:1px solid #000;
+	margin-top:20px;
+}
+
+.main-dark th{
+	line-height: 24px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	background: #bbb;
+	color: #000;
+	text-align: center;
+}
+
+.main-dark td{
+	text-align: center;
+	line-height: 24px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	padding: 5px 0px 5px 0px;
+}
+
+.main-dark .none{
+	border-right: none;
+}
+
+.main-dark .even{
+	background: #888;
+	color: #fff;
+}
+
+.main-dark .odd{
+	background: #666;
+	color: #fff;
+}
+
+.columns{
+	padding-bottom: 20px;
+}
+
+.column-1{
+	width: 30%;
+	float: left;
+}
+
+.column-2{
+	width: 30%;
+	float: left;
+	margin-left: 50px;
+}
+
+.column-3{
+	width: 30%;
+	float: right;
+}
+
+
+
+/* ######## START LIGHT THEME CLASSES ######## */
+
+.main-light h1 {
+	font-size: 30px; 
+	padding-bottom: 5px; 
+	margin-bottom: 20px; 
+	color: #000000; 
+}
+
+.main-light h1 span {
+	color: #42aae0;
+	font-style: italic;
+}
+
+.main-light h2 {
+	font-size: 26px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px;
+	color: #000000; 
+}
+
+.main-light h3 {
+	font-size: 24px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	color: #000000; 
+}
+
+.main-light h3.light-theme{
+	color: #ffffff; 
+}
+
+.main-light h3 span {
+	color: #42aae0;
+	font-style: italic;
+}
+
+.main-light h4 {
+	font-size: 20px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	color: #000000; 
+}
+
+
+.main-light h5 {
+	font-size: 18px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px; 
+	color: #000000; 
+}
+
+
+.main-light h6 {
+	font-size: 14px; 
+	padding-bottom: 5px; 
+	margin-bottom: 15px;
+	color: #000000; 
+}
+
+.main-light{
+	background-color: #ffffff;
+	color: #222222;
+	padding: 20px 40px 40px 40px;
+	margin: 30px 0;
+}
+
+.main-light a:hover{
+	color: #504E4F;
+}
+
+.main-light-left{
+	width: 450px;
+	float: left;
+}
+
+.main-light-right{
+	width: 450px;
+	float: right;
+}
+
+.main-light ul{
+	padding: 0 14px;
+	list-style: disc;
+}
+
+.main-light ol{
+	padding: 0 14px;
+	list-style: decimal;
+}
+
+.main-light li{
+	line-height: 18px;
+}
+
+.main-light table{
+	border: 1px solid #000;
+	margin-top: 20px;
+}
+
+.main-light th{
+	line-height: 24px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+	text-align: center;
+}
+
+.main-light td{
+	text-align:center;
+	line-height: 24px;
+	border-bottom: 1px solid #000;
+	border-right: 1px solid #000;
+}
+
+.main-light .none{
+	border-right: none;
+}
+
+.main-light .even{
+	background: #ddd;
+	color: #000;
+}
+
+
+
+/* ######## START HELPER CLASSES ######## */
+
+.fl { 
+	float: left;
+	padding: 0px 30px 30px 0px
+}
+
+.fr { 
+	float: right;
+	padding: 0px 0px 30px 30px
+}
+
+.wrapper { 
+	height: 100%; 
+	overflow: hidden; 
+}
+
+.cl { 
+	clear: both; 
+	font-size: 0; 
+	height: 0; 
+}
+
+.clearfix:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+.header-border { 
+	width: 100%;
+	float: left;
+	clear: right;
+	border-bottom: 1px solid #42aae0; 
+	margin-top: 30px;
+}
+
+
+
+/* ######## START COLOR CLASSES ######## */
+
+.blue { 
+	color: #42aae0;
+}
+
+.blue2 { 
+	color: #1b7ba1;
+}
+
+
+/* ######## START ALIGNMENT CLASSES ######## */
+
+.center { 
+	text-align: center; 
+}
+
+.right { 
+	text-align: right;
+}
+
+.top {
+	vertical-align: top; 
+}
+
+.middle { 
+	vertical-align: middle; 
+}
+
