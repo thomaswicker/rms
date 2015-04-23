@@ -60,14 +60,6 @@ table {
   border-spacing: 0;
 }
 
-a, a:hover, a:active, a:focus {
-  outline: none !important;
-}
-
-input {
-  outline: none !important;
-}
-
 /* PAUL IRISH BORDER BOX SIZING FIX -- apply a natural box layout model to all elements */
 *, *:before, *:after {
   box-sizing: border-box;
@@ -99,8 +91,13 @@ input {
 }
 
 .navbar-brand img {
-  width: 140px;
-  margin: -8px 0px 0px 4px;
+  width: 155px;
+  margin: -10px 0px 0px 4px;
+}
+@media only screen and (max-width: 40em) {
+  .navbar-brand img {
+    margin: -10px 0px 0px -5px;
+  }
 }
 
 .navbar {
@@ -240,53 +237,13 @@ input {
   opacity: .8;
 }
 
-.nav-tabs {
-  border-bottom: 1px solid #ddd;
-  margin-top: -16px;
-}
-
-.nav-tabs > li {
-  float: left;
-  margin-bottom: 0px;
-}
-
-.nav-tabs > li > a {
-  margin-right: 2px;
-  color: #14395d;
-  border-radius: 0px;
-}
-
-.nav-tabs > li.active > a,
-.nav-tabs > li.active > a:hover,
-.nav-tabs > li.active > a:focus {
-  color: #555;
-  cursor: default;
-  background-color: #fff;
-}
-
-.tab-content > .tab-pane {
-  display: none;
-}
-
-.tab-content > .active {
-  display: block;
-}
-
-.carousel-indicators {
-  bottom: 5px;
-}
-
-.dropdown ul > li {
-  list-style-type: none !important;
-}
-
 /*
-  ____  _   _ _____ _____ ___  _   _ ____     ____ ____ ____  
- | __ )| | | |_   _|_   _/ _ \| \ | / ___|   / ___/ ___/ ___| 
- |  _ \| | | | | |   | || | | |  \| \___ \  | |   \___ \___ \ 
+  ____  _   _ _____ _____ ___  _   _ ____     ____ ____ ____
+ | __ )| | | |_   _|_   _/ _ \| \ | / ___|   / ___/ ___/ ___|
+ |  _ \| | | | | |   | || | | |  \| \___ \  | |   \___ \___ \
  | |_) | |_| | | |   | || |_| | |\  |___) | | |___ ___) |__) |
- |____/ \___/  |_|   |_| \___/|_| \_|____/   \____|____/____/ 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+ |____/ \___/  |_|   |_| \___/|_| \_|____/   \____|____/____/
+
 */
 /* -------------------------- BEGIN CUSTOM BUTTONS -------------------------- */
 .btn-info {
@@ -346,23 +303,28 @@ input {
 }
 
 .btn-back {
-  padding: 7px 17px 7px 17px;
+  padding: .9rem 1.9rem .9rem 1.8rem;
   border-radius: 0px;
   background-color: #009444;
   color: #FFFFFF;
   text-transform: uppercase;
   border: none;
   margin-bottom: 2em;
+  font-size: 1.1rem;
 }
 .btn-back i {
   padding: 0px 7px 0px 0px;
 }
 .btn-back:hover {
   background-color: #002e15 !important;
-  padding: 7px 17px 7px 17px;
   color: #FFFFFF;
   -webkit-transition: background-color .3s ease-in;
           transition: background-color .3s ease-in;
+}
+@media only screen and (max-width: 40em) {
+  .btn-back {
+    width: 100%;
+  }
 }
 
 .btn-primary {
@@ -506,7 +468,7 @@ input {
 }
 .bodyLeft p {
   width: 90%;
-  font-size: 1em;
+  font-size: 1.05rem !important;
   line-height: 1.4em;
   padding: 8px 0px 0px 0px;
   display: block;
@@ -570,7 +532,7 @@ input {
   float: left;
   width: 100%;
   color: #104460 !important;
-  font-size: 1.2rem !important;
+  font-size: 1.4rem !important;
   font-weight: 500 !important;
   line-height: 1.4rem;
   margin-bottom: 1em;
@@ -581,6 +543,11 @@ input {
     font-size: 1rem;
     line-height: 1.4rem;
   }
+}
+.bodyRight h3 i {
+  position: relative;
+  top: 1px;
+  margin-right: 8px;
 }
 
 .products-call-to-action i {
@@ -603,14 +570,12 @@ input {
   max-height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
-  border: 1px solid #42aae0;
+  border: 1px solid #999;
 }
 .bodyRightContainer li.home-news {
   float: left;
   width: 100%;
   padding: 20px 20px 0px 20px;
-}
-.bodyRightContainer li:nth-child(even) {
   background-color: #EFF8FA;
 }
 .bodyRightContainer .home-news-date {
@@ -643,8 +608,8 @@ input {
   font-size: .95em;
   line-height: 1.5em;
   color: #3b3b3c;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: .25rem;
+  margin-bottom: .25rem;
 }
 .bodyRightContainer p span, .bodyRightContainer p a {
   background: none !important;
@@ -672,8 +637,13 @@ input {
   width: 100%;
   height: auto;
   margin: 0px 0px 15px 0px;
-  padding: 30px 20px 24px 20px;
-  border: 1px solid #ddd;
+  padding: 2rem 1.1rem 1.5rem 1.2rem;
+  border: 1px solid #ccc;
+}
+@media only screen and (max-width: 40em) {
+  .productsRow {
+    padding: 1rem 1.1rem 1.5rem 1.2rem;
+  }
 }
 
 .productsRowLeft {
@@ -687,7 +657,7 @@ input {
   .productsRowLeft {
     float: left;
     width: 100%;
-    margin: 0px 0px 20px 0px;
+    margin: 0rem 0rem 0rem 0rem;
     border-right: none;
   }
 }
@@ -695,6 +665,11 @@ input {
   width: 90%;
   max-width: 190px;
   min-width: 120px;
+}
+@media only screen and (max-width: 40em) {
+  .productsRowLeft img {
+    max-width: 140px;
+  }
 }
 .productsRowLeft button {
   width: 100%;
@@ -706,7 +681,7 @@ input {
   width: 80%;
   padding: 0rem 2rem 0rem 0rem;
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (max-width: 40em) {
   .productsRowRight {
     float: left;
     clear: both;
@@ -737,13 +712,13 @@ input {
 }
 .productsRowRightTop h3 {
   font-family: "Open Sans", sans-serif;
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-weight: 400;
-  color: #0c354a;
+  color: #104460;
 }
 @media only screen and (max-width: 40em) {
   .productsRowRightTop h3 {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
   }
 }
 
@@ -762,7 +737,7 @@ input {
   width: 100%;
   padding: 10px 0px 0px 0px;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem !important;
   line-height: 1.4rem;
 }
 .productsRowRightBottom .button-container {
@@ -852,9 +827,19 @@ input {
 .carousel {
   height: 255px;
 }
+@media only screen and (max-width: 40em) {
+  .carousel {
+    height: 225px;
+  }
+}
 
 .carousel-inner {
   height: 255px;
+}
+@media only screen and (max-width: 40em) {
+  .carousel-inner {
+    height: 225px;
+  }
 }
 .carousel-inner .hero-image-carousel {
   width: 100%;
@@ -873,6 +858,7 @@ input {
 @media only screen and (max-width: 40em) {
   .carousel-inner .hero-image-carousel {
     width: 100%;
+    min-height: 225px;
   }
 }
 
@@ -881,24 +867,34 @@ input {
   width: 100%;
   top: 0;
   left: 0;
+  padding-top: 0rem;
 }
 
 .captionLeft {
   float: left;
-  width: 33%;
+  width: 30%;
   text-align: right;
-  padding: 0px 30px 0px 80px;
+  padding: 1rem 2rem 0rem 0rem;
+  height: 250px;
+}
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  .captionLeft {
+    padding: 1rem 2rem 0rem 0rem;
+  }
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .captionLeft {
+    width: 33%;
     text-align: right;
+    padding: 1rem 2rem 0rem .5rem;
   }
 }
 @media only screen and (max-width: 40em) {
   .captionLeft {
     width: 100%;
-    padding: 0px;
+    padding: 1rem 0rem 0rem 0rem;
     text-align: center;
+    height: 200px;
   }
 }
 .captionLeft h1 {
@@ -912,34 +908,71 @@ input {
 .captionLeft a img {
   width: 100%;
   max-width: 190px;
-  margin-top: 0em;
+  margin-top: .5rem;
 }
 @media only screen and (min-width: 90.063em) and (max-width: 124em) {
   .captionLeft a img {
     width: 100%;
     min-width: 140px;
     max-width: 190px;
-    margin-top: 1em;
+    margin-top: .5rem;
   }
 }
 @media only screen and (min-width: 64.063em) and (max-width: 90em) {
   .captionLeft a img {
     width: 100%;
     min-width: 140px;
-    max-width: 190px;
-    margin-top: 0em;
+    max-width: 170px;
+    margin-top: .6rem;
   }
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .captionLeft a img {
     width: 100%;
     min-width: 140px;
-    max-width: 190px;
+    max-width: 170px;
     margin-top: 1em;
   }
 }
 @media only screen and (max-width: 40em) {
   .captionLeft a img {
+    width: 90%;
+    max-width: 160px;
+    margin-top: 0em;
+  }
+}
+
+.mix_left a img {
+  width: 100%;
+  max-width: 190px;
+  margin-top: 0em;
+}
+@media only screen and (min-width: 90.063em) and (max-width: 124em) {
+  .mix_left a img {
+    width: 100%;
+    min-width: 140px;
+    max-width: 190px;
+    margin-top: 1.1rem;
+  }
+}
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  .mix_left a img {
+    width: 100%;
+    min-width: 140px;
+    max-width: 190px;
+    margin-top: 1.1rem;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .mix_left a img {
+    width: 100%;
+    min-width: 140px;
+    max-width: 170px;
+    margin-top: 1em;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .mix_left a img {
     width: 90%;
     max-width: 170px;
     margin-top: 0em;
@@ -948,22 +981,21 @@ input {
 
 .captionRight {
   float: left;
-  width: 67%;
-  margin-top: 40px;
+  width: 70%;
   text-align: left;
-  padding: 20px 200px 0px 10px;
-  height: 250px;
+  padding: 3.8rem 12rem 0rem .85rem;
+  height: auto;
+  min-height: 250px;
 }
 @media only screen and (min-width: 64.063em) and (max-width: 90em) {
   .captionRight {
-    margin-top: 35px;
-    padding: 10px 200px 0px 10px;
+    padding: 3.5rem 4rem 0rem .85rem;
   }
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .captionRight {
-    margin-top: 35px;
-    padding: 10px 50px 0px 20px;
+    width: 67%;
+    padding: 3.5rem 4rem 0rem 0rem;
   }
 }
 @media only screen and (max-width: 40em) {
@@ -972,21 +1004,21 @@ input {
   }
 }
 .captionRight p {
-  font-size: 2.6em;
-  line-height: 1.2em;
+  font-size: 3rem;
+  line-height: 3.5rem;
   font-family: "Parisienne", cursive;
   font-weight: 200;
 }
 @media only screen and (min-width: 64.063em) and (max-width: 90em) {
   .captionRight p {
-    font-size: 2.6em;
-    line-height: 1.2em;
+    font-size: 3.1rem;
+    line-height: 3.5rem;
   }
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .captionRight p {
-    font-size: 2.2em;
-    line-height: 1.2em;
+    font-size: 2.2rem;
+    line-height: 2.6rem;
   }
 }
 
@@ -998,6 +1030,11 @@ input {
   margin-top: 120px;
   padding: 8px 14px 8px 14px;
   background-color: #42aae0;
+}
+@media only screen and (max-width: 40em) {
+  .carousel-control i {
+    margin-top: 80px;
+  }
 }
 
 /*
@@ -1119,23 +1156,37 @@ input {
 .bodyLeft_about {
   float: left;
   width: 55%;
-  padding: 60px 60px 70px 60px;
+  padding: 3.9rem 6.3rem 4.6rem 6.3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+}
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  .bodyLeft_about {
+    padding: 3.9rem 5.3rem 4.6rem 5.3rem;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .bodyLeft_about {
+    padding: 3.3rem 2.3rem 4.6rem 2.3rem;
+  }
 }
 @media only screen and (max-width: 40em) {
   .bodyLeft_about {
     width: 100%;
-    padding: 30px 20px 30px 20px;
+    padding: 2.3rem 1.2rem 2.3rem 1.2rem;
   }
 }
 .bodyLeft_about h1 {
   float: left;
   width: 100%;
-  color: #000000;
-  font-size: 2em;
+  font-size: 2rem;
   font-family: "Open Sans", sans-serif;
+  color: #104460;
   font-weight: 400;
-  padding: 0px 0px 13px 0px;
+  padding: 0rem 0rem 1rem 0rem;
   text-transform: capitalize;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1.4rem;
 }
 .bodyLeft_about h2 {
   float: left;
@@ -1146,40 +1197,40 @@ input {
   font-weight: 300;
   line-height: 1.4em;
   font-style: italic;
-  padding: 5px 0px 0px 0px;
-  margin: 0px 0px -5px 0px;
+  padding: .4rem 0rem 0rem 0rem;
 }
 .bodyLeft_about h3 {
   float: left;
   width: 100%;
   color: #3b3b3c;
-  font-size: 1.1em;
+  font-size: 1.1rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.1em;
+  line-height: 1.3rem;
   font-style: italic;
   padding: 4px 0px 4px 0px;
   margin: 0px 0px -5px 0px;
 }
 .bodyLeft_about p {
-  font-family: Arial, Helvetica, sans-serif !important;
   float: left !important;
   width: 100% !important;
-  font-size: 1rem !important;
-  line-height: 1.4rem !important;
+  font-size: 1.05rem !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+  line-height: 1.6rem !important;
+  margin-bottom: 1rem;
 }
 .bodyLeft_about ol, .bodyLeft_about ul {
   list-style-type: initial;
   padding-left: 1.4rem;
   margin-top: 10px;
   margin-left: 1rem;
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
   line-height: 1.6rem !important;
 }
 .bodyLeft_about ol li, .bodyLeft_about ul li {
   line-height: 1.6rem !important;
   color: black;
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
 }
 .bodyLeft_about ol {
   list-style-type: decimal !important;
@@ -1192,7 +1243,7 @@ input {
   width: 100%;
   clear: both;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 1.05rem !important;
   color: #000000;
   line-height: 1.5rem;
   padding: 0px !important;
@@ -1209,22 +1260,27 @@ input {
   float: left;
   width: 45%;
   height: auto;
-  padding: 50px 50px 40px 20px;
-  margin: 2px 0px 0px 0px;
+  padding: 3.6rem 3.6rem 2.8rem 1.1rem;
   text-align: center;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .bodyRight_about {
+    padding: 3.6rem 1.6rem 2.8rem 1.1rem;
+  }
 }
 @media only screen and (max-width: 40em) {
   .bodyRight_about {
     width: 100%;
-    padding: 10px 20px 40px 20px;
+    padding: .8rem 1.1rem 2.8rem 1.1rem;
   }
 }
 .bodyRight_about img {
-  float: left;
-  width: 90%;
+  width: 100%;
+  min-width: 8rem;
+  max-width: 30rem;
   margin-left: auto;
   margin-right: auto;
-  min-width: 300px;
+  min-width: 200px;
   padding: 10px;
   box-shadow: 0px 0px 5px #3b3b3c;
 }
@@ -1234,19 +1290,18 @@ input {
   }
 }
 .bodyRight_about figcaption {
-  float: left;
-  width: 90%;
+  width: 100%;
+  max-width: 30rem;
+  margin-top: 1.2rem;
   margin-left: auto;
   margin-right: auto;
-  min-width: 300px;
-  padding: .95rem 0rem .95rem 1.1rem;
-  margin: 1.2rem 0rem 0rem 0rem;
+  padding: .95rem 0rem .95rem 0rem;
   background-color: #444;
   color: #FFFFFF;
-  font-size: 1.05rem;
   font-weight: 200;
+  font-size: 1.05rem;
   font-family: "Open Sans", sans-serif;
-  line-height: 1.3em;
+  line-height: 1.3rem;
   text-align: center;
 }
 @media only screen and (max-width: 40em) {
@@ -1288,7 +1343,7 @@ input {
 .bodyLeft_news {
   float: left;
   width: 70%;
-  padding: 60px 60px 70px 60px;
+  padding: 3.9rem 6.3rem 4.6rem 6.3rem;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .bodyLeft_news {
@@ -1306,18 +1361,18 @@ input {
   width: 100%;
   font-size: 2rem;
   line-height: 2.3rem;
-  color: #135476;
+  color: #104460;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  border-bottom: 2px solid #ddd;
-  padding: 0px 0px 10px 0px;
-  margin-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+  padding: 0rem 0rem 1rem 0rem;
+  margin-bottom: .7rem;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .bodyLeft_news h1 {
     font-size: 1.8rem;
     line-height: 2rem;
-    padding: 0px 15px 10px 15px;
+    padding: 0rem 1rem .8rem 1rem;
   }
 }
 @media only screen and (max-width: 40em) {
@@ -1328,7 +1383,7 @@ input {
 }
 .bodyLeft_news .clickHere {
   color: #42aae0;
-  padding: 15px 0px 0px 0px;
+  padding: 1rem 0rem 0rem 0rem;
 }
 .bodyLeft_news .clickHere:hover {
   color: #1a73a2;
@@ -1443,10 +1498,13 @@ input {
 .activeNewsTab:hover {
   background-color: #42aae0 !important;
   border-right: 3px solid #FFFFFF;
-  cursor: initial !important;
+  cursor: default !important;
 }
 .activeNewsTab a {
   color: #FFFFFF !important;
+}
+.activeNewsTab a:hover {
+  cursor: default !important;
 }
 .activeNewsTab a span {
   color: #FFFFFF !important;
@@ -1499,6 +1557,11 @@ input {
   float: left;
   width: 100%;
 }
+@media only screen and (max-width: 40em) {
+  .bodyMainNews {
+    padding: 0rem 1rem 0rem 1rem;
+  }
+}
 
 .heroWrapper_news {
   float: left;
@@ -1521,6 +1584,7 @@ input {
 @media only screen and (max-width: 40em) {
   .heroWrapper-news-left {
     width: 100%;
+    height: 180px;
     text-align: center;
     padding: 1.5em 0em 0em 1em;
   }
@@ -1529,6 +1593,17 @@ input {
   width: 100%;
   max-width: 12em;
   margin-top: 1.05em;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .heroWrapper-news-left img {
+    max-width: 11em;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .heroWrapper-news-left img {
+    margin-top: 0rem;
+    max-width: 10em;
+  }
 }
 
 .heroWrapper-news-right {
@@ -1570,7 +1645,7 @@ input {
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .heroWrapper-news-right {
     width: 70%;
-    padding: 4.2em 3em 0em 1em;
+    padding: 4.2em 6em 0em 1em;
   }
 }
 @media only screen and (max-width: 40em) {
@@ -1587,26 +1662,43 @@ input {
   float: left;
   width: 100%;
   padding: 1.2rem 1rem 1.2rem 1rem;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-left: -1.2rem;
 }
 .news-item-block img {
-  padding: 1.2rem 0rem 1.2rem 0rem;
+  float: left;
+  margin-top: 1rem;
+  margin-bottom: .6rem;
+  padding: 1rem 1rem 1rem 1rem;
+  box-shadow: 0px 0px 7px #888;
+}
+.news-item-block ul {
+  float: left;
+  width: 100%;
+  margin-bottom: 1rem;
 }
 .news-item-block ul li {
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size: .95rem !important;
+  font-size: 1rem !important;
   line-height: 1.5rem;
   margin-left: 20px;
 }
+.news-item-block ol {
+  float: left;
+  width: 100%;
+  margin-bottom: 1rem;
+}
 .news-item-block ol li {
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size: .95rem !important;
-  line-height: 1.5rem;
+  font-size: 1.05rem !important;
+  line-height: 1.4rem;
   margin-left: 20px;
 }
 .news-item-block p {
   color: #000000;
-  font-size: 1rem;
-  line-height: 1.6rem;
+  font-size: 1.05rem !important;
+  line-height: 1.4rem;
   font-family: Arial, Helvetica, sans-serif;
 }
 .news-item-block p a {
@@ -1619,13 +1711,13 @@ input {
   list-style-type: initial;
   padding-left: 1.4rem;
   margin-top: 10px;
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
   line-height: 1.6rem !important;
 }
 .news-item-block ol li, .news-item-block ul li {
   line-height: 1.6rem !important;
   color: black;
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
 }
 .news-item-block ol {
   list-style-type: decimal !important;
@@ -1642,6 +1734,7 @@ input {
   font-family: "Open Sans", sans-serif;
   font-weight: 600;
   padding: 0px 0px 3px 0px;
+  margin-bottom: .5rem;
 }
 @media only screen and (max-width: 40em) {
   .news-item-block h2 {
@@ -1737,12 +1830,12 @@ input {
   padding: 30px 30px 70px 60px;
   text-align: left;
 }
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .bodyLeft_contact {
     padding: 30px 30px 70px 20px;
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (max-width: 40em) {
   .bodyLeft_contact {
     clear: both;
     width: 100%;
@@ -1753,11 +1846,21 @@ input {
 .bodyLeft_contact h1 {
   font-size: 2rem;
   line-height: 2.3rem;
-  color: #135476;
+  color: #104460;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  .bodyLeft_contact h1 {
+    font-size: 2rem !important;
+  }
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .bodyLeft_contact h1 {
+    font-size: 1.5rem !important;
+  }
+}
+@media only screen and (max-width: 40em) {
   .bodyLeft_contact h1 {
     font-size: 1.6rem !important;
   }
@@ -1883,22 +1986,22 @@ input {
   width: 50%;
   padding-right: 2rem;
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (max-width: 40em) {
   .stateSelect select {
     width: 100% !important;
   }
 }
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
   .stateSelect {
     width: 65%;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .stateSelect {
     width: 100%;
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (max-width: 40em) {
   .stateSelect {
     width: 100%;
   }
@@ -1926,18 +2029,18 @@ input {
   width: 50%;
   padding-left: .5rem;
 }
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
   .zipCode {
     width: 35%;
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 992px) {
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .zipCode {
     width: 100%;
     padding-left: 0rem;
   }
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (max-width: 40em) {
   .zipCode {
     width: 100%;
     padding-left: 0rem;
@@ -2007,7 +2110,7 @@ input {
   color: red;
   margin: 15px 0px 0px 0px;
 }
-@media only screen and (min-width: 0px) and (max-width: 767px) {
+@media only screen and (max-width: 40em) {
   .requiredFields {
     margin: 15px 0px 20px 0px;
   }
@@ -2126,6 +2229,11 @@ input:focus, textarea:focus {
   font-weight: 400 !important;
 }
 
+@media only screen and (max-width: 40em) {
+  .bodyRight_contact #id_message {
+    width: 100%;
+  }
+}
 /*
   _____ ____  ____   ___  ____  ____     ____ ____ ____  
  | ____|  _ \|  _ \ / _ \|  _ \/ ___|   / ___/ ___/ ___| 
@@ -2321,6 +2429,25 @@ input:focus, textarea:focus {
  |____/|_____/_/   \_\_| \_\____|_| |_|  \____|____/____/ 
                                                                                                                                                                                                                                                                                                                           
 */
+#searchContainer {
+  float: left;
+  width: 100%;
+  padding: 0rem 2rem 7rem 2rem;
+  min-height: 925px;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  #searchContainer {
+    padding: 1rem .5rem 7rem .5rem;
+    min-height: 425px;
+  }
+}
+@media only screen and (max-width: 40em) {
+  #searchContainer {
+    padding: 7rem .5rem 7rem .5rem;
+    min-height: 325px;
+  }
+}
+
 .search-bar-search-page {
   position: absolute;
   top: 74px;
@@ -2339,6 +2466,65 @@ input:focus, textarea:focus {
     left: 30px;
     top: 80px;
   }
+}
+.search-bar-search-page .search-bar-form {
+  width: 330px;
+  height: 2.8rem;
+  position: absolute;
+  top: 1rem;
+  right: 3.3rem;
+  z-index: 1027;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .search-bar-search-page .search-bar-form {
+    width: 280px;
+    top: 1rem;
+    right: 2.8rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .search-bar-search-page .search-bar-form {
+    width: 105%;
+    top: .3rem;
+    left: -.3rem;
+    right: initial;
+  }
+}
+.search-bar-search-page .search-bar-form i {
+  font-size: 1.1rem;
+  color: #ccc;
+  position: absolute;
+  top: 14px;
+  right: 300px;
+  z-index: 1028;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .search-bar-search-page .search-bar-form i {
+    top: 14px;
+    right: 250px;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .search-bar-search-page .search-bar-form i {
+    top: 15px;
+    right: initial;
+    left: 20px;
+  }
+}
+.search-bar-search-page .search-bar-form input {
+  width: 330px;
+  padding: 12px 10px 12px 38px;
+}
+@media only screen and (max-width: 40em) {
+  .search-bar-search-page .search-bar-form input {
+    width: 100%;
+    right: initial;
+    left: 5px;
+  }
+}
+.search-bar-search-page .search-bar-form input:focus {
+  border: 0px;
+  box-shadow: none;
 }
 
 .searchBar {
@@ -2404,11 +2590,16 @@ input:focus, textarea:focus {
 }
 .searchBarRight form i {
   font-size: 1.1rem;
-  color: #42aae0;
+  color: #aaa;
   position: absolute;
   top: 15px;
-  right: 262px;
+  right: 311px;
   z-index: 1028;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .searchBarRight form i {
+    right: 231px;
+  }
 }
 @media only screen and (max-width: 40em) {
   .searchBarRight form i {
@@ -2418,13 +2609,18 @@ input:focus, textarea:focus {
   }
 }
 .searchBarRight input {
-  width: 280px;
+  width: 330px;
   height: 40px;
   padding: 8px 10px 4px 36px;
   position: absolute;
   top: 5px;
   right: 10px;
   z-index: 1027;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .searchBarRight input {
+    width: 250px;
+  }
 }
 @media only screen and (max-width: 40em) {
   .searchBarRight input {
@@ -2478,64 +2674,58 @@ input:focus, textarea:focus {
   padding: 0em 0em 4em 0em;
 }
 
-#searchContainer {
-  float: left;
-  padding: 0em 0em 7em 0em;
-  min-height: 725px;
+.search-results-container {
+  padding: 4rem 4rem 0rem 4rem;
+}
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {
+  .search-results-container {
+    padding: 4rem 4rem 0rem 4rem;
+  }
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
-  #searchContainer {
-    min-height: 425px;
+  .search-results-container {
+    padding: 4rem 2rem 0rem 2rem;
   }
 }
 @media only screen and (max-width: 40em) {
-  #searchContainer {
-    min-height: 325px;
+  .search-results-container {
+    padding: 0rem 1rem 0rem 1rem;
   }
 }
-
-#productCopy {
-  padding: 0em 3em 0em 3em;
-}
-@media only screen and (max-width: 40em) {
-  #productCopy {
-    padding: 0em 1em 0em 1em;
-  }
-}
-#productCopy .searchResultsHeader {
+.search-results-container h1 {
   float: left;
   width: 100%;
-  font-weight: 300;
-  color: #000;
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-family: "Open Sans", sans-serif;
-  padding-top: 1.5em;
-  padding-bottom: .5em;
-  border-bottom: 1px solid #000;
+  color: #104460;
+  font-weight: 400;
+  text-transform: capitalize;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1.4rem;
+  padding-bottom: 1.2rem;
 }
 @media only screen and (max-width: 40em) {
-  #productCopy .searchResultsHeader {
-    padding-top: 3.5em;
+  .search-results-container h1 {
+    padding-bottom: 1.2rem;
   }
 }
-#productCopy #resultsCount {
+.search-results-container #resultsCount {
   float: left;
   width: 100%;
-  font-size: .9rem;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 300;
   font-family: "Open Sans", sans-serif;
   line-height: 1.3rem;
   background-color: #42aae0;
   color: #FFFFFF;
   padding: 1em 1.2em 1em 1.2em;
-  border-bottom: 1px solid #000;
 }
-#productCopy #resultsCount i {
+.search-results-container #resultsCount i {
   margin-right: 10px;
   font-size: 1.1rem;
 }
 @media only screen and (max-width: 40em) {
-  #productCopy #resultsCount i {
+  .search-results-container #resultsCount i {
     display: none;
   }
 }
@@ -2604,9 +2794,25 @@ input:focus, textarea:focus {
   line-height: 1.65rem;
   margin-top: 1.5em;
   text-transform: uppercase;
-  padding: 20px 10px 10px 0px;
+  padding: 1.5rem .8rem .8rem 0rem;
   color: #000;
   border-bottom: 2px solid #888;
+}
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {
+  .search-results-tag {
+    border-bottom: none;
+    background-color: #bbb;
+    color: #fff;
+    padding: .5rem .8rem .5rem 1rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .search-results-tag {
+    border-bottom: none;
+    background-color: #bbb;
+    color: #fff;
+    padding: .5rem .8rem .5rem 1rem;
+  }
 }
 
 .search-results-tag-2 {
@@ -2661,6 +2867,19 @@ input:focus, textarea:focus {
  |_| |_|_____|_| \_\___/   \____|____/____/ 
                                                                  
 */
+.hero-wrapper {
+  float: left;
+  width: 100%;
+  height: 250px;
+  padding: 0px;
+  margin: 0px;
+}
+@media only screen and (max-width: 40em) {
+  .hero-wrapper {
+    height: 220px;
+  }
+}
+
 .hero-wrapper-left {
   float: left;
   width: 35%;
@@ -2672,6 +2891,12 @@ input:focus, textarea:focus {
   .hero-wrapper-left {
     width: 100%;
     text-align: center;
+    padding: .5rem 0rem 0rem 0rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .hero-wrapper-left img {
+    margin-top: -1rem;
   }
 }
 
@@ -2953,14 +3178,6 @@ input:focus, textarea:focus {
   }
 }
 
-.hero-wrapper {
-  float: left;
-  width: 100%;
-  height: 250px;
-  padding: 0px;
-  margin: 0px;
-}
-
 #heroWrapper_sinfonia {
   background: url("../images/carouselImage_Sinfonia_v2.jpg");
   background-color: black;
@@ -3109,7 +3326,7 @@ input:focus, textarea:focus {
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .hero-wrapper-support-left {
-    width: 25%;
+    width: 35%;
   }
 }
 @media only screen and (max-width: 40em) {
@@ -3148,7 +3365,7 @@ input:focus, textarea:focus {
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .hero-wrapper-support-right {
-    width: 75%;
+    width: 65%;
   }
 }
 @media only screen and (max-width: 40em) {
@@ -3156,10 +3373,18 @@ input:focus, textarea:focus {
     display: none;
   }
 }
+.hero-wrapper-support-right .fb-like {
+  position: absolute;
+  left: 7rem;
+  top: 19.8rem;
+  width: 100px;
+  height: 28px;
+}
 
 .support-main {
   float: left;
   width: 100%;
+  min-height: 600px;
   padding: 0em 5em 2.5em 5em;
 }
 @media only screen and (max-width: 40em) {
@@ -3192,21 +3417,26 @@ input:focus, textarea:focus {
 }
 .support-main-left h1 {
   color: #000000;
-  font-size: 1.7em;
+  font-size: 2.1rem;
+  line-height: 2.4rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  padding: 0px 0px 3px 0px;
+  padding: 0rem 0rem .1rem 0rem;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .support-main-left h1 {
-    font-size: 1.8em;
+    font-size: 2.2rem;
+    line-height: 2.4rem;
+    margin-bottom: 1rem;
   }
 }
 @media only screen and (max-width: 40em) {
   .support-main-left h1 {
-    font-size: 1.2em;
-    font-weight: 400;
-    margin-top: 0px;
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+    font-weight: 600;
+    margin-top: 0rem;
+    margin-bottom: 1rem;
   }
 }
 .support-main-left h2 {
@@ -3252,7 +3482,7 @@ input:focus, textarea:focus {
 }
 .support-main-left p {
   width: 100%;
-  font-size: .95em;
+  font-size: 1rem;
   line-height: 1.4em;
   padding: 8px 0px 0px 0px;
   display: block;
@@ -3260,17 +3490,11 @@ input:focus, textarea:focus {
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .support-main-left p {
     width: 95%;
-    font-size: .95em;
-    line-height: 1.4em;
-    padding: 8px 0px 0px 0px;
   }
 }
 @media only screen and (max-width: 40em) {
   .support-main-left p {
     width: 95%;
-    font-size: .95em;
-    line-height: 1.4em;
-    padding: 8px 0px 0px 0px;
   }
 }
 
@@ -3626,7 +3850,7 @@ input:focus, textarea:focus {
 .products-main-left {
   float: left;
   width: 70%;
-  padding: 0em 0em 2em 0em !important;
+  padding: 0rem 0rem 2rem 0rem !important;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .products-main-left {
@@ -3636,61 +3860,67 @@ input:focus, textarea:focus {
 @media only screen and (max-width: 40em) {
   .products-main-left {
     width: 100% !important;
-    padding: 0px;
+    padding: 0rem;
   }
 }
 .products-main-left h1 {
-  color: #000000;
-  font-size: 2em;
+  float: left;
+  width: 100%;
+  font-size: 2rem;
   font-family: "Open Sans", sans-serif;
+  color: #104460;
   font-weight: 400;
   padding: 0px 0px 3px 0px;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .products-main-left h1 {
-    font-size: 1.8em;
+    font-size: 1.8rem;
   }
 }
 @media only screen and (max-width: 40em) {
   .products-main-left h1 {
-    font-size: 1.2em;
+    font-size: 1.5rem;
     font-weight: 400;
     margin-top: 0px;
   }
 }
 .products-main-left h2 {
+  float: left;
+  width: 100%;
   color: #1b7ba1;
-  font-size: 1.3em;
+  font-size: 1.3rem;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
-  line-height: 1.2em;
+  line-height: 1.4rem;
   font-style: italic;
-  padding: 0rem 0rem 1rem 0rem;
-  margin: 0rem 0rem -.8rem 0rem;
+  padding: .1rem 0rem 1.2rem 0rem;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 1.2rem;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .products-main-left h2 {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    padding: .1rem 0rem 1.5rem 0rem;
   }
 }
 @media only screen and (max-width: 40em) {
   .products-main-left h2 {
-    font-size: 1em;
-    margin: 5px 0px 0px 0px;
-    font-style: normal;
+    font-size: 1.1rem;
+    padding: 0rem 0rem 1rem 0rem;
+    font-style: 300;
   }
 }
 .products-main-left p {
   width: 90%;
-  font-size: 1em;
-  line-height: 1.4em;
+  font-size: 1.05rem;
+  line-height: 1.4rem;
   padding: 8px 0px 0px 0px;
   display: block;
 }
 @media only screen and (min-width: 40.063em) and (max-width: 64em) {
   .products-main-left p {
     width: 95%;
-    font-size: .95em;
+    font-size: 1rem;
     line-height: 1.4em;
     padding: 8px 0px 0px 0px;
   }
@@ -3698,24 +3928,24 @@ input:focus, textarea:focus {
 @media only screen and (max-width: 40em) {
   .products-main-left p {
     width: 95%;
-    font-size: .95em;
-    line-height: 1.4em;
+    font-size: 1rem;
+    line-height: 1.4rem;
     padding: 8px 0px 0px 0px;
   }
 }
 
 .tab-panel-main {
-  margin-top: -2.75em;
+  margin-top: -2.65em;
   width: 100%;
 }
 
 .tab-content {
   width: 100%;
-  padding: 3.5em 2.5em 0em 2.5em;
+  padding: 3.9rem 6.3rem 4.6rem 6.3rem;
 }
 @media only screen and (max-width: 40em) {
   .tab-content {
-    padding: 2em 1.2em 2em 1.2em;
+    padding: 2rem 1.2rem 2rem 1.2rem;
   }
 }
 
@@ -3970,17 +4200,21 @@ input:focus, textarea:focus {
   border-bottom: 0px !important;
 }
 .nav-tabs li {
+  margin-top: -.2rem;
   border-bottom: 0px !important;
+  padding-bottom: .8rem;
+  position: relative;
+  top: 3px;
+}
+@media only screen and (max-width: 40em) {
+  .nav-tabs li {
+    width: 33.333%;
+  }
 }
 .nav-tabs li a {
-  margin-top: 0em;
-}
-.nav-tabs li:hover a {
-  border-bottom: 0px !important;
-  background-color: #2293cd;
-}
-
-.nav-tabs li a {
+  position: relative;
+  top: 0px;
+  margin-top: 0rem;
   text-align: center;
   padding-left: 40px;
   padding-right: 40px;
@@ -3991,6 +4225,49 @@ input:focus, textarea:focus {
     padding-left: 12px;
     padding-right: 12px;
   }
+}
+.nav-tabs li:hover a {
+  border-bottom: 0px !important;
+  background-color: #2293cd;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs > li {
+  float: left;
+  margin-bottom: 0px;
+}
+
+.nav-tabs > li > a {
+  margin-right: 2px;
+  color: #14395d;
+  border-radius: 0px;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+}
+
+.tab-content > .tab-pane {
+  display: none;
+}
+
+.tab-content > .active {
+  display: block;
+}
+
+.carousel-indicators {
+  bottom: 5px;
+}
+
+.dropdown ul > li {
+  list-style-type: none !important;
 }
 
 #list2 {
@@ -4006,6 +4283,8 @@ input:focus, textarea:focus {
   margin-right: 2%;
   padding-left: 0px;
   padding-right: 0px;
+  line-height: 1.4rem !important;
+  font-size: 1.05rem !important;
 }
 #list2 li img {
   float: left;
@@ -4015,15 +4294,19 @@ input:focus, textarea:focus {
   float: left;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
   color: #333 !important;
-  line-height: 1.3rem !important;
+  line-height: 1.4rem !important;
 }
 #list2 li p {
   padding: 10px 15px 0px 10px;
+  line-height: 1.4rem !important;
+  font-size: 1.05rem !important;
 }
 #list2 li a {
   text-decoration: underline;
+  line-height: 1.4rem !important;
+  font-size: 1.05rem !important;
 }
 
 #list2 > li {
@@ -4160,7 +4443,6 @@ input:focus, textarea:focus {
   color: #777;
   background-color: #eee;
   color: #14395d;
-  border: 1px solid #14395d;
 }
 .faq-questions-header i {
   color: #14395d !important;
@@ -4169,7 +4451,6 @@ input:focus, textarea:focus {
   cursor: pointer;
   background-color: #6ebee7;
   color: #FFFFFF;
-  border: 1px solid #14395d;
 }
 .faq-questions-header:hover i {
   color: #FFFFFF !important;
@@ -4234,36 +4515,45 @@ input:focus, textarea:focus {
 .faq-questions-answer {
   display: none;
   float: left;
+  width: 100%;
   padding: 10px 18px 20px 18px;
   margin-bottom: 10px;
-  border: 1px solid #14395d;
-  font-size: 1.1rem;
-  line-height: 1.4rem;
-  color: black;
+  border: 1px solid #bbb;
+  font-size: 1.05rem !important;
+  line-height: 1.4rem !important;
+  color: #000000;
   background-color: #FFFFFF;
   font-size: 1rem !important;
-  font-family: "Open Sans", sans-serif !important;
+  font-family: Arial, Helvetica, sans-serif !important;
+}
+.faq-questions-answer div {
+  font-size: 1.05rem !important;
+}
+@media only screen and (max-width: 40em) {
+  .faq-questions-answer {
+    border: 0px;
+  }
 }
 .faq-questions-answer p {
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
 }
 .faq-questions-answer span {
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
 }
 .faq-questions-answer strong {
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
 }
 .faq-questions-answer ol, .faq-questions-answer ul {
   list-style-type: initial !important;
   padding-left: 20px;
   margin-left: 23px;
-  font-size: 1rem !important;
+  font-size: 1.05rem !important;
   line-height: 1.6rem !important;
 }
 .faq-questions-answer ol li, .faq-questions-answer ul li {
   line-height: 1.6rem !important;
-  color: black;
-  font-size: 1rem !important;
+  color: #000000;
+  font-size: 1.05rem !important;
 }
 .faq-questions-answer ul {
   list-style-type: disc !important;
@@ -4353,8 +4643,9 @@ input:focus, textarea:focus {
 .faq-questions-answer-2 {
   display: none;
   float: left;
-  font-size: 1.1rem;
-  line-height: 1.4rem;
+  width: 100%;
+  font-size: 1.05rem !important;
+  line-height: 1.4rem !important;
   color: black;
   background-color: #FFFFFF;
   padding: 20px 45px 40px 45px;
@@ -4363,6 +4654,9 @@ input:focus, textarea:focus {
 .faq-questions-answer-2 ul, .faq-questions-answer-2 ol {
   margin: 5px 0px 0px 22px;
   list-style-type: initial !important;
+}
+.faq-questions-answer-2 ul li, .faq-questions-answer-2 ol li {
+  margin-left: 1rem;
 }
 
 .faq-questions-header-2b {
@@ -4433,16 +4727,24 @@ input:focus, textarea:focus {
 .faq-questions-answer-2b {
   display: none;
   float: left;
-  font-size: 1.1rem;
-  line-height: 1.4rem;
+  width: 100%;
+  font-size: 1.05rem !important;
+  line-height: 1.4rem !important;
   color: black;
   background-color: #FFFFFF;
   border: 1px solid #14395d;
   padding: 0px;
   margin: 0px;
 }
+@media only screen and (max-width: 40em) {
+  .faq-questions-answer-2b {
+    border: 0px;
+  }
+}
 
 .video-container {
+  float: left;
+  width: 100%;
   position: relative;
   padding-bottom: 56.25%;
   padding-top: 0px;
