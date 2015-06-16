@@ -1,0 +1,236 @@
+body {
+  background-color: black;
+}
+
+.bodyText {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.3rem;
+}
+
+ul {
+  float: left;
+  width: 100%;
+}
+
+/* ######## START HELPER CLASSES ######## */
+
+strong {
+  font-weight: bold !important;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.fl {
+  float: left;
+  padding: 0px 30px 30px 0px
+}
+
+.fr {
+  float: right;
+  padding: 0px 0px 30px 30px
+}
+
+.wrapper {
+  height: 100%;
+  overflow: hidden;
+}
+
+.header-border {
+  width: 100%;
+  float: left;
+  clear: right;
+  border-bottom: 1px solid #42aae0;
+  margin-top: 30px;
+}
+
+/* ######## START COLOR CLASSES ######## */
+
+.blue {
+  color: #42aae0;
+}
+
+.blue2 {
+  color: #1b7ba1;
+}
+
+.main-header {
+  color: #42aae0;
+}
+
+/* ######## START ALIGNMENT CLASSES ######## */
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.top {
+  vertical-align: top;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+  background-color: #ddd !important;
+}
+
+ul li {
+  margin-top: .4rem;
+}
+
+.subheader-callout {
+  margin-bottom: 1.2rem;
+  color: #1b7ba1;
+}
+
+.main-theme {
+  background-color: white;
+  margin-top: 50px;
+  padding: 3rem 4rem 3rem 4rem;
+}
+
+.main-theme code {
+  display: block;
+  float: left;
+  width: 100%;
+  background-color: #C5E1FF;
+  color: #192C55;
+  padding: 1rem 1rem 1rem 1rem;
+  word-wrap: normal !important;
+  margin-bottom: 1rem;
+}
+
+.main-theme p {
+  display: block;
+  float: left;
+  width: 100%;
+}
+
+.grid div {
+  border: 1px solid white;
+  background-color: #42aae0;
+  min-height: 100px;
+  color: white;
+  text-align: center;
+  padding-top: 1rem;
+}
+
+/* BEGIN HEADER STYLES */
+
+h1 {
+  font-size: 30px;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+h1 span {
+  color: #42aae0;
+  font-style: italic;
+}
+
+h2 {
+  font-size: 26px;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+h3 {
+  font-size: 24px;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+h3.light-theme{
+  color: #ffffff;
+}
+
+h3 span {
+  color: #42aae0;
+  font-style: italic;
+}
+
+h4 {
+  font-size: 20px;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+h4.grid-header {
+  font-size: 20px;
+  padding-bottom: 5px;
+  margin-top: -10px;
+  color: #0EEAFF;
+  font-style: italic;
+  font-family: 'Lato', sans-serif;
+}
+
+h5 {
+  font-size: 18px;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+
+h6 {
+  font-size: 14px;
+  padding-bottom: 5px;
+  color: #000000;
+}
+
+/* END HEADER STYLES */
+
+.theme-header {
+  float: left;
+  width: 100%;
+  margin-top: 1.4rem;
+  font-size: 1.7rem;
+  font-weight: bold;
+  border-top: 2px solid #aaa;
+  padding-top: 1rem;
+}
+
+.theme-subheader {
+  float: left;
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+}
+
+
+.block-1 {
+  padding: 3rem;
+  background: #42aae0;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.block-2 {
+  padding: 3rem;
+  background: #1b7ba1;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+.footer-container {
+  margin-top: 0px;
+}

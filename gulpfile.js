@@ -6,13 +6,11 @@ minifycss = require('gulp-minify-css'),
 uglify = require('gulp-uglify'),
 concat = require('gulp-concat'),
 rename = require("gulp-rename"),
-minifyHTML = require('gulp-minify-html');
 livereload = require('gulp-livereload');
 
 //source variables
-var jsSources = ['components/js/*.js'];
+var jsSources = ['components/js/application.js'];
 var sassSources = ['components/scss/styles.scss'];
-var htmlSources = ['**/*.html'];
 
 
 //gulp javascript tasks
@@ -36,20 +34,14 @@ gulp.task('sass', function() {
     .pipe(gulp.dest('css'));
 });
 
-//gulp html tasks
-gulp.task('html', function () {
-    gulp.src(htmlSources)
-});
-
 //gulp watch tasks
 gulp.task('watch', function() {
     livereload.listen();
     gulp.watch(jsSources, ['js']).on('change', livereload.changed);
     gulp.watch('components/scss/**/*.scss', ['sass']).on('change', livereload.changed);
     gulp.watch('components/css/application.min.css', ['css']).on('change', livereload.changed);
-    gulp.watch(htmlSources, ['html']).on('change', livereload.changed);
 });
 
 
 //runs all tasks through one command of 'gulp'
-gulp.task('default', ['js', 'sass', 'html', 'watch']);
+gulp.task('default', ['js', 'sass', 'watch']);

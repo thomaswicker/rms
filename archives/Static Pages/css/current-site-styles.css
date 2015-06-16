@@ -1,0 +1,277 @@
+/*
+  ____   ___    _   _  ___ _____   __  __  ___  ____ ___ _______   __
+ |  _ \ / _ \  | \ | |/ _ \_   _| |  \/  |/ _ \|  _ \_ _|  ___\ \ / /
+ | | | | | | | |  \| | | | || |   | |\/| | | | | | | | || |_   \ V /
+ | |_| | |_| | | |\  | |_| || |   | |  | | |_| | |_| | ||  _|   | |
+ |____/ \___/  |_| \_|\___/ |_|   |_|  |_|\___/|____/___|_|     |_|
+
+*/
+/*
+   ____ ____ ____    ____  _____ ____  _____ _____
+  / ___/ ___/ ___|  |  _ \| ____/ ___|| ____|_   _|
+ | |   \___ \___ \  | |_) |  _| \___ \|  _|   | |
+ | |___ ___) |__) | |  _ <| |___ ___) | |___  | |
+  \____|____/____/  |_| \_\_____|____/|_____| |_|
+
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* PAUL IRISH BORDER BOX SIZING FIX -- apply a natural box layout model to all elements */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+
+
+.navbar-brand {
+  padding: 15px 0px 0px 0px;
+  position: absolute;
+  left: 0px;
+}
+
+.navbar-brand img {
+  width: 155px;
+  margin: -10px 0px 0px 4px;
+}
+
+@media only screen and (max-width: 40em) {
+  .navbar-brand img {
+    margin: -10px 0px 0px -5px;
+  }
+}
+
+
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+}
+
+p {
+  line-height: 18px;
+  padding: 5px 0;
+}
+
+ul {}
+
+  li {
+    line-height: 18px;
+  }
+
+  a {
+    color: #09f;
+  }
+
+  a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  img {
+    margin:10px;
+  }
+
+  img.border {
+    border: 1px solid #000;
+  }
+
+  img.fl {
+    margin: 0 10px 30px 0;
+  }
+
+  img.fr {
+    margin: 0 0 30px 10px;
+  }
+
+  ul{
+    margin: 0 0 10px 20px;
+  }
+
+  ol{
+    margin: 0 0 10px 20px;
+  }
+
+  /* ######## START DARK THEME CLASSES ######## */
+
+/*
+   ____ _   _ ____ _____ ___  __  __   ____   ___   ___ _____ ____ _____ ____      _    ____
+  / ___| | | / ___|_   _/ _ \|  \/  | | __ ) / _ \ / _ \_   _/ ___|_   _|  _ \    / \  |  _ \
+ | |   | | | \___ \ | || | | | |\/| | |  _ \| | | | | | || | \___ \ | | | |_) |  / _ \ | |_) |
+ | |___| |_| |___) || || |_| | |  | | | |_) | |_| | |_| || |  ___) || | |  _ <  / ___ \|  __/
+  \____|\___/|____/ |_| \___/|_|  |_| |____/ \___/ \___/ |_| |____/ |_| |_| \_\/_/   \_\_|
+
+*/
+.navbar {
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.navbar-brand img {
+  width: 155px;
+  margin: -10px 0px 0px 4px;
+}
+@media only screen and (max-width: 40em) {
+  .navbar-brand img {
+    margin: -10px 0px 0px -5px;
+  }
+}
+
+.navbar {
+  background-repeat: repeat;
+  background-color: rgba(0, 0, 0, .85);
+  box-shadow: 3px 3px 10px #000000;
+}
+
+.navbar-collapse {
+  max-height: 340px;
+  padding-right: 5px;
+  padding-left: 5px;
+  overflow-x: visible;
+  -webkit-overflow-scrolling: touch;
+  border-top: 1px solid transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.navbar-collapse.in {
+  overflow-y: auto;
+}
+
+.navbar-toggle {
+  position: relative;
+  float: right;
+  padding: 9px 10px;
+  margin-top: 8px;
+  margin-right: 10px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 0px;
+}
+
+.navbar-inverse .navbar-nav > li {
+  color: #999;
+  padding: 10px 0px 0px 0px;
+}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .navbar-inverse .navbar-nav > li {
+    border-bottom: 1px solid #888888;
+    font-size: 1em;
+    text-transform: uppercase;
+  }
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  padding: 5px 20px 15px 20px;
+  color: #999;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+  -webkit-transition: color .4s ease-in;
+          transition: color .4s ease-in;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #fff;
+  background-color: #42aae0;
+  margin: -10px 0px 0px 0px;
+  padding: 15px 20px 15px 20px;
+  box-shadow: 1px 1px 10px #000000;
+}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .navbar-inverse .navbar-nav > .active > a,
+  .navbar-inverse .navbar-nav > .active > a:hover,
+  .navbar-inverse .navbar-nav > .active > a:focus {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+  }
+}
+
+.navbar-nav {
+  right: 0;
+  position: fixed;
+  margin: 0px 30px 0px 0px;
+  width: 550px;
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .navbar-nav {
+    right: 0;
+    position: fixed;
+    margin: 0px 00px 0px 0px;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .navbar-nav {
+    right: 0;
+    position: relative;
+    margin: 0px 00px 0px 0px;
+  }
+}
+
+.navbar > .container .navbar-brand,
+.navbar > .container-fluid .navbar-brand {
+  margin-left: 35px;
+}
+@media only screen and (max-width: 40em) {
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: 5px;
+  }
+}
+
+
+
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+  background-color: transparent !important;
+}
