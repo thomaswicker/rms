@@ -1,6 +1,6 @@
 //gulp requires
 var gulp = require('gulp'),
-sass = require('gulp-ruby-sass'),
+sass = require('gulp-sass'),
 autoprefixer = require('gulp-autoprefixer'),
 minifycss = require('gulp-minify-css'),
 uglify = require('gulp-uglify'),
@@ -23,23 +23,23 @@ gulp.task('js', function() {
     .pipe(gulp.dest('js'))
 });
 
-//gulp sass tasks
 gulp.task('sass', function() {
-    return gulp.src(sassSources)
-    .pipe(sass({ style: 'expanded' }))
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
-    .pipe(gulp.dest('css'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(minifycss())
-    .pipe(gulp.dest('css'));
+	return gulp.src(sassSources)
+	        .pipe(sass({ style: 'expanded' }))
+	        .pipe(minifycss())
+	        .pipe(gulp.dest('./css/'))
+    			.pipe(rename({suffix: '.min'}))
+    			 .pipe(minifycss())
+	        .pipe(gulp.dest('./css/'));
 });
+
 
 //gulp watch tasks
 gulp.task('watch', function() {
     livereload.listen();
     gulp.watch(jsSources, ['js']).on('change', livereload.changed);
     gulp.watch('components/scss/**/*.scss', ['sass']).on('change', livereload.changed);
-    gulp.watch('components/css/application.min.css', ['css']).on('change', livereload.changed);
+    gulp.watch('components/css/styles.min.css', ['css']).on('change', livereload.changed);
 });
 
 
