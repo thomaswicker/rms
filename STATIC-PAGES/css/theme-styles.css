@@ -10,14 +10,23 @@ body {
 img {
   margin: 0px;
 }
-@media only screen and (min-width: 0px) and (max-width: 600px) {
-  img {
-    width: 100%;
-  }
-}
 
 a {
   color: #42aae0;
+}
+
+p {
+  -ms-word-break: break-all;
+
+     /* Be VERY careful with this, breaks normal words wh_erever */
+     word-break: break-all;
+
+     /* Non standard for webkit */
+     word-break: break-word;
+
+-webkit-hyphens: auto;
+   -moz-hyphens: auto;
+        hyphens: auto;
 }
 
 a:hover {
@@ -86,6 +95,10 @@ strong {
   margin-top: 30px;
 }
 
+.block {
+  display: block !important;
+}
+
 .margin-top-large {
   margin-top: 3rem;
 }
@@ -149,9 +162,36 @@ strong {
 
 .top-btn {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 65px;
+  right: 15px;
   z-index: 100000;
+}
+
+#ap_container {
+  z-index: 10000000000;
+  position: relative;
+}
+
+@media only screen and (min-width: 400px) and (max-width: 767px) {
+  .top-btn {
+    width: 100%;
+    position: fixed;
+    bottom: 35px;
+    left: 0px;
+    z-index: 100000;
+    background-color:  rgba(27, 123, 161, .9) !important;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 399px) {
+  .top-btn {
+    width: 100%;
+    position: fixed;
+    bottom: 48px;
+    left: 0px;
+    z-index: 100000;
+    background-color:  rgba(27, 123, 161, .9) !important;
+  }
 }
 
 .next-btn {
@@ -170,9 +210,7 @@ strong {
 }
 
 .next-video-btn {
-  float: right;
-  margin-right: 1rem;
-  margin-top: -4.25rem;
+  float: left;
   margin-bottom: 1rem;
 }
 
@@ -190,13 +228,13 @@ strong {
   float: left;
   width: 100%;
   background-color: #ccc;
-  margin-top: 1rem;
+  margin-bottom: 2rem;
   padding: 1rem 10rem 0rem 10rem;
 }
 @media only screen and (min-width: 993px) and (max-width: 1400px) {
   .main-theme {
     background-color: #ddd;
-    padding: 3rem 5rem 0rem 5rem;
+    padding: 2rem 5rem 0rem 5rem;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 992px) {
@@ -209,8 +247,25 @@ strong {
   .main-theme {
     background-color: #ddd;
     margin-top: 5px;
-    padding: 2rem 1rem 0rem 1rem;
+    padding: 1rem .75rem 0rem .75rem;
   }
+
+  .main-theme img {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    width: auto ;
+    display: block;
+  }
+}
+
+.menu-icon {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+img.pull-left {
+  padding: 1rem;
 }
 
 .main-theme ul {
@@ -226,6 +281,23 @@ strong {
 @media only screen and (min-width: 0px) and (max-width: 767px) {
   .main-theme ul li {
     margin-top: .9rem;
+  }
+
+  .main-theme ul li img{
+    display: none
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .what-you-need img {
+    float: none;
+  }
+
+  .what-you-need .image-container {
+    text-align: center;
+  }
+  .amazon-image {
+    display: none;
   }
 }
 
@@ -275,10 +347,10 @@ strong {
 @media only screen and (min-width: 0px) and (max-width: 767px) {
   .theme-container {
     float: left;
-    width: 95%;
-    margin-left: 2.5%;
-    margin-right: 2.5%;
-    padding: 2.2rem 1.5rem 3rem 1.5rem;
+    width: 99%;
+    margin-left: .5%;
+    margin-right: .5%;
+    padding: 1.4rem 1.5rem 3rem 1.5rem;
   }
 }
 
@@ -551,6 +623,10 @@ h6 {
  |_|   \___/ \___/ |_| |_____|_| \_\  \____|____/____/
 
 */
+
+.footer-container {
+  z-index: 10000000;
+}
 
 .footerTop {
   float: left;
