@@ -177,14 +177,45 @@ strong {
   bottom: 65px;
   right: 15px;
   z-index: 1000000000000000000000000000000 !important;
+  background-color:  rgba(27, 123, 161, .7) !important;
 }
+
+.top-btn:hover {
+  background-color:  rgba(27, 123, 161, .9) !important;
+}
+
+.top-btn span {
+  display: block;
+  font-size: .9rem;
+}
+
+.top-btn i {
+  display: none;
+}
+
 @media only screen and (min-width: 481px) and (max-width: 767px) {
   .top-btn {
-    width: 25%;
+    width: 30px;
     position: fixed;
-    bottom: 62px;
-    right: 0px;
+    bottom: 58px;
+    right: 27px;
+    padding: 12px;
+    text-align: center;
+    font-size: .8rem;
+    background-color:  rgba(27, 123, 161, .7) !important;
+  }
+
+  .top-btn:hover {
     background-color:  rgba(27, 123, 161, .9) !important;
+  }
+
+  .top-btn span {
+    display: none;
+  }
+
+  .top-btn i {
+    display: block;
+    font-size: 1rem;
   }
 }
 @media only screen and (min-width: 400px) and (max-width: 480px) {
