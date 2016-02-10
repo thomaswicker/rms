@@ -1,0 +1,339 @@
+{% extends "base_main.html" %}
+{% block columnContainer %}
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li class="active"><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+
+
+
+<!-- ################################ BEGIN FACEBOOK JS ################################ -->
+
+  <div id="fb-root"></div>
+
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ################################ END FACEBOOK JS ################################ -->
+
+
+
+
+
+
+<!-- ################################### BEGIN HERO ################################## -->
+
+<section id="hero-contact" class="" >
+
+  <div class="fb-like fb-like-contact" data-href="https://www.facebook.com/RealtimeMusicSolutions?ref=aymt_homepage_panel" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+  <a href="https://www.google.com/maps/place/121+W+27th+St+%23705,+New+York,+NY+10001/@40.746107,-73.991996,15z/data=!4m2!3m1!1s0x89c259a578eef421:0x8892a3a184bd6e08?hl=en-US" id="view-map-btn" class="btn btn-mini btn-primary" target="blank">VIEW MAP</a>
+
+
+</section><!--END #hero-contact -->
+
+<!-- ################################### END HERO ################################## -->
+
+
+
+
+
+
+<!-- ################################ BEGIN SEARCH BAR ################################ -->
+
+  <section class="search-bar">
+
+    <ul class="search-bar-left">
+      <li>
+        <a href="https://twitter.com/rms_sinfonia" target="_blank"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/company/realtime-music-solutions-llc?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+      </li>
+    </ul>
+
+    <div class="search-bar-right">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .search-bar-right -->
+
+  </section><!--END .search-bar -->
+
+<!-- ################################ END SEARCH BAR ################################ -->
+
+
+
+
+
+
+
+<!-- ########################## BEGIN CONTACT BODY CONTAINER ######################### -->
+
+
+<section id="body-contact">
+
+  <section class="body-contact-left">
+
+    <h1>Contact Us</h1>
+
+    <h2>Realtime Music Solutions</h2>
+
+    <p>
+      121 W. 27th Street</br>
+      Suite 705</br>
+      New York, NY 10001</br>
+
+      <span>Phone:</span> 212.620.0774 </br>
+    </p>
+
+  </section><!--END .body-contact-left -->
+
+  <div class="form-feedback"></div>
+
+  <form id="contact-form" action="/contact/" method="post">
+
+    {% csrf_token %}
+
+    <!-- {{ form }} -->
+
+    <section class="body-contact-middle">
+
+      <span class="phone">
+        <label for="name"><span class="contact-span">*</span>First Name:</label>
+        {{ form.firstName }}
+        {{ form.firstName.errors }}
+      </span>
+
+      <span class="name">
+        <label for="name"><span class="contact-span">*</span>Last Name:</label>
+        {{ form.lastName }}
+        {{ form.lastName.errors }}
+      </span>
+
+      <span class="organization">
+        <label for="organization"><span class="contact-span">*</span>Organization:</label>
+        {{ form.organizationName }}
+        {{ form.organizationName.errors }}
+      </span>
+
+      <span class="email">
+        <label for="email"><span class="contact-span">*</span>Email:</label>
+        {{ form.email }}
+        {{ form.email.errors }}
+      </span>
+
+      <span class="phone">
+        <label for="phone">Phone:</label>
+        {{ form.phone }}
+        {{ form.phone.errors }}
+      </span>
+
+      <span class="street">
+        <label for="street">Street:</label>
+        {{ form.street }}
+        {{ form.street.errors }}
+      </span>
+
+      <span class="city">
+        <label for="city"><span class="contact-span">*</span>City:</label>
+        {{ form.city }}
+        {{ form.city.errors }}
+      </span>
+
+      <span class="state-select">
+        <label for="id_state"><span class="contact-span">*</span>State/Province:</label>
+        <input id="id_state" type="hidden" class="state" name="state"/><br/>
+	      {{ form.state.errors }}
+      </span>
+
+      <span class="zip-code">
+        <label for="zip">Zip/Postal:</label>
+        {{ form.postalCode }}
+        {{ form.postalCode.errors }}
+      </span>
+
+      <span class="country-select">
+        <label for="contact-state-select"><span class="contact-span">*</span>Country:</label>
+        {{ form.country }}
+        {{ form.country.errors }}
+      </span>
+
+    </section><!--END .body-contact-middle -->
+
+
+    <aside class="body-contact-right">
+
+      <span class="product-inquiry">
+
+        <label><span class="contact-span">*</span><span class="which-product-text">Which product are you inquiring about?:</span></label>
+      	{% comment %}
+
+        <span class="which-product-list">{{ form.products }}</span>
+      	{% endcomment %}
+        {% comment %} custom form with registered trademark symbol {% endcomment %}
+      	
+        <section class="which-product-list">
+
+          <ul>
+            {% for product in products %}
+        	  <li>
+              <div class="contact-checkbox">
+                <input name="products" value="{{product.name}}" id="id_products_{{product.id}}" type="checkbox" {% if product.name in checkedproducts %}checked{% endif %}>
+                <label for="id_products_{{product.id}}"></label>
+              </div>
+
+              <div class="contact-listings">
+                <div class="product-name">{{product.name}}<sup class="superscript">&reg;</sup></div>
+                <section class="license-brands">
+                  <div class="brand">
+                    {% for feature in product.features.all %} {{ feature }}<sup class="superscript">&reg;</sup>{% if forloop.last %}{% else %},{% endif %}{% endfor %}
+                  </div>
+                </section>
+              </div>
+
+            </li>
+        	  {% endfor %}
+        	</ul>
+
+        </span>
+
+        {{ form.products.errors }}
+      </section>
+
+      <span class="message">
+        <label for="name"><span class="contact-span">*</span>Message:</label>
+        {{ form.message }}
+        {{ form.message.errors }}
+      </span>
+
+      <div class="contact-buttons-box">
+        <button id="btn-submit" class="btn btn-mini btn-primary" type="submit" value="Submit">Submit</button>
+        <button id="btn-reset" class="btn btn-mini btn-gray" type="reset" value="Reset">Reset</button>
+      </div>
+
+      <div class="required-fields">* denotes required fields</div>
+
+    </form>
+
+  </aside><!--END .body-contact-right  -->
+
+</section><!--END #body-contact -->
+
+
+<!-- ########################## END CONTACT BODY CONTAINER ######################### -->
+
+
+
+
+
+<!-- ###### BEGIN CUSTOM JAVASCRIPT ####### -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" type="text/css" href="{{ MEDIA_URL }}css/contactmodal.css">
+<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/black-tie/jquery-ui.min.css">
+<script src="/media/js/contactmodal.js"></script>
+
+<script type="text/javascript">
+
+  $(document).ready(function() {
+    $('#dialog-message').hide();
+    $('#btn-reset').on('click', function () {
+      $('input, textarea').val("");
+    });
+  });
+
+
+  // Lightbox JS
+  $(function () {
+    var $country = $('.country');
+    var $stateInput = $('.state');
+
+    var $stateSelect = $("<select ></select>").insertBefore($stateInput).change(function () {
+      $stateInput.val($stateSelect.val());
+      {% if state %}
+      $stateSelect.val('{{ state }}');
+      $stateSelect.trigger('change');      
+      {% endif %}
+    });
+
+    function autofillstate(){
+        $stateSelect.change();
+    }
+    $('body, #contact-form').on('mouseenter', autofillstate);
+
+
+    $country.change(function () {
+      $stateSelect.empty().addClass('loading');
+      $.getJSON('/states', {'country': $(this).val()}, function (states) {
+        $stateSelect.removeClass('loading');
+        for (i in states) {
+          $stateSelect.append('<option value="' + states[i] + '">' + states[i] + '</option>');
+        }
+        $stateSelect.val("Please Select").trigger('change');
+      });
+    }).trigger('change');
+  });
+
+
+</script>
+
+<div id="dialog-message" class="dialog-message" title="Thank You For Contacting Us!">
+	<p>
+		<span class="fa fa-check-circle" style="float:left; margin: 4px 7px 5px 0px"></span>
+		Your message was successfully sent.
+	</p>
+	<p>
+    You should expect a personal reply within the next business day or even sooner, as we answer most email within a few hours.
+	</p>
+</div>
+
+
+</body>
+</html>
+
+{% endblock %}

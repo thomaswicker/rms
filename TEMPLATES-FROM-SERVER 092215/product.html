@@ -1,0 +1,436 @@
+{% extends "base_product.html" %}
+{% block id %} id="products"{% endblock %}
+{% block copy %}
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li class="has-dropdown active">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN HERO ############################### -->
+
+  <section id="hero-{{product.spacelessname|lower}}" class='hero-wrapper'>
+
+    <div class="hero-wrapper-left">
+      <img class="{{product.spacelessname|lower}}-products-left" src="{{ MEDIA_URL }}{{product.thumbnail}}" alt="{{product.spacelessname}} Logo">
+    </div><!--/.hero-wrapper-left -->
+
+    <div class="hero-wrapper-right">
+      <img class="{{product.spacelessname|lower}}-products-right" src="{{ MEDIA_URL }}{{product.banner_noext}}.png" alt="{{product.spacelessname}} Title">
+    </div><!--/.hero-wrapper-right -->
+
+  </section><!--END #hero-productname -->
+
+<!-- ################################ END HERO ################################# -->
+
+
+
+
+<!-- ############################ BEGIN SEARCH BAR ############################# -->
+
+  <section class="search-bar">
+
+    <ul class="search-bar-left">
+
+    </ul>
+
+    <div class="search-bar-right search-bar-right-product">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .searchBarRight -->
+
+  </section><!--END .searchBar -->
+
+<!-- ########################### END SEARCH BAR ############################# -->
+
+
+
+
+<!-- ########################## BEGIN PRODUCT BODY ########################## -->
+
+  <section id='products-main'>
+
+    <div class="products-main-left">
+
+      <ul class="tabs" data-tab>
+        <li class="tab-title{% if support == "False" and about == "False" %} active{% endif %}"><a href="#panel1">Intro</a></li>
+        <li class="tab-title{% if about == "True" %} active{% endif %}"><a href="#panel2">About</a></li>
+        <li class="tab-title{% if support == "True" %} active{% endif %}"><a href="#panel3">Support</a></li>
+      </ul>
+
+      <section class="tabs-content">
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ TAB ONE - INTRO ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <section class="content{% if support == "False" and about == "False" %} active{% endif %}" id="panel1">
+          <h1>Introducing {{product.name}}<sup class="superscript">®</sup></h1>
+          <h2 class="subtitle">{{product.intro_taglines|safe}}</h2>
+
+          {% if product.url %}
+          <div class="video-container">
+            <iframe width="640" height="480" class="product-video" src="{{product.url}}?autoplay=0&controls=1&showinfo=0; rel=0" frameborder="0" controls=1 allowfullscreen="true"></iframe>
+          </div>
+          {% endif %}
+
+          {% for item in sticky_link %}
+          <a href="{{item.url}}" target="_blank" >
+          <div class="products-call-to-action"><i class="fa fa-info-circle"></i><p>{{item.text}}</p></div>
+          </a>
+          {% endfor %}
+        </section><!--END #panel1-->
+        
+
+        <!-- ~~~~~~~~~~~~~~~~~~~~ TAB TWO - ABOUT ~~~~~~~~~~~~~~~~~~~~ -->
+
+        <section class="content{% if about == "True" %} active{% endif %}" id="panel2">
+
+          <h1>About {{product.name}}<sup class="superscript">®</sup></h1>
+          <h2 class="subtitle">{{product.about_taglines|safe}}</h2>
+          {{product.about|safe}}
+
+        </section><!--END #panel2-->
+        
+        
+        <!-- ~~~~~~~~~~~~~~~~~~ TAB THREE - SUPPORT ~~~~~~~~~~~~~~~~~~ -->
+
+        <section class="content{% if support == "True" %} active{% endif %}" id="panel3">
+
+          <h1>{{product.name}}<sup class="superscript">®</sup> Support</h1>
+
+          <h2 class="subtitle margin top medium"><a href="{{product.documentation|striptags}}" class="subtitle-support">Click here to view the {{product.name}} Documentation! </a></h2>
+
+          
+
+
+          <section class="{{ item.type|lower }}Questions faq-questions-header-2{% if gettingstarted == 'True'%} active-eader-2{% endif %}">
+
+            <div class="container-left {{ item.type|lower }}-color"></div>
+
+            <div class="container-middle">
+              Getting Started with {{product.name}}<sup class="superscript">®</sup>
+            </div>
+
+            <div class="container-right-plus" style="display: {% if gettingstarted == 'True' %}none{% else %}block{% endif %}"><i class="fa fa-angle-left"></i></div>
+            <div class="container-right-minus" style="display: {% if gettingstarted == 'True' %}block{% else %}none{% endif %}"><i class="fa fa-angle-down"></i></div>
+          
+          </section>
+
+
+
+          <section class="faq-questions-answer-2{% if gettingstarted == 'True' %} activeFAQ{% endif %}">
+            {{product.getting_started|safe}}
+          </section>
+
+          <section class="{{ item.type|lower }}Questions faq-questions-header-2b{%if gettingstarted == 'False' %} activeHeader-2{% endif %}">
+
+            <div class="container-left {{ item.type|lower }}-color"></div>
+            <div class="container-middle">
+              FAQs
+            </div>
+            <div class="container-right-plus" style="display: {% if gettingstarted == 'False' %}none{% else %}block{% endif %}"><i class="fa fa-angle-left"></i></div>
+            <div class="container-right-minus" style="display: {% if gettingstarted == 'False' %}block{% else %}none{% endif %}" ><i class="fa fa-angle-down"></i></div>
+          
+          </section>
+
+
+
+          <section class="faq-questions-answer-2b{% if gettingstarted == 'False' %} activeFAQ{% endif %}">
+
+              <div class="faq-filter-container">
+                
+                <section class="filter-toggles-left">
+                  <input id="search-input" type="text" placeholder="Type to filter the list below">
+                </section>
+                
+                <section class="filter-toggles-right">
+                  <div class="toggle-container">
+                    <div class="filter-label">FAQ Filters</div>
+                    <span id="general" class="general" data-toggle="tooltip" data-placement="bottom" title="General FAQs"></span>
+                    <span id="sales" class="sales" data-toggle="tooltip" data-placement="bottom" title="Sales FAQs"></span>
+                    <span id="technical" class="technical" data-toggle="tooltip" data-placement="bottom" title="Technical FAQs"></span>
+                  </div><!--END .toggle-container-->
+                </section><!--END .filter-toggles-->
+
+              </div><!--END .faq-filter-container-->
+
+              <ul id="list2">
+                {% comment %}
+                {% include 'faq.html' %}
+                {% endcomment %}
+              </ul><!--END #list2-->
+
+          </section><!--END .faq-questions-answer-->
+
+        </section><!--END #panel3-->
+
+      </section><!--END .tabs-content -->
+
+    </div><!--END .products-main-left -->
+
+    <aside class="products-main-right">
+
+      {% if product.static_link %}
+  	  
+      <h3>Download {{product.name}}<sup class="superscript">®</sup></h3>
+  	  
+      <div class='product-header-subtext'>{{product.download_text|safe}}</div>
+    	
+      <a href="{{product.static_link}}" class="btn btn-primary btn-products">
+        <i class="fa fa-arrow-down" style="margin-right: 8px;"></i>
+        DOWNLOAD
+      </a>
+
+      {% else %}
+      {% if request.user_agent.is_pc %}
+
+      <h3>Download {{product.name}}<sup class="superscript">®</sup></h3>
+
+      <div class='product-header-subtext'>{{product.download_text|safe}}</div>
+
+      {% if platform == 'Windows' %}
+      {% if product.download_link %}
+
+      <a href="{{product.download_link}}" class="btn btn-primary btn-products" onClick="trackConv({{adword.google_conversion_id}},'{{adword.google_conversion_label}}');"><i class="fa fa-arrow-down" style="margin-right: 8px;"></i>DOWNLOAD FOR PC</a>
+
+      {% endif %}
+      {% endif %}
+      {% if platform == 'Mac' %}
+      {% if product.mac_link %}
+
+      <a href="{{product.mac_link}}" class="btn btn-primary btn-products" onClick="trackConv({{adword.google_conversion_id}},'{{adword.google_conversion_label}}');"><i class="fa fa-arrow-down" style="margin-right: 8px;"></i>DOWNLOAD FOR MAC</a>
+      {% endif %}
+      {% endif %}
+      {% if product.mobile_desktop_download %}
+      {% if product.mobile_link %}
+
+      <section class="medium-12 columns btn-app-store-container">
+        <h3>Download {{product.name}}<sup class="superscript">®</sup> Apps</h3>
+
+        <div class="btn-app-store-1">
+          <a href="{{product.mobile_link}}" class="btn-products-2">
+            <img src="{{ MEDIA_URL }}images/app_store_badge.png">
+          </a>
+        </div>
+
+        {% endif %}
+
+        {% if product.mobile_link2 %}
+        <div class="btn-app-store-2">
+          <a href="{{product.mobile_link2}}" class="btn-products-2">
+            <img src="{{ MEDIA_URL }}images/google_app_store.png">
+          </a>
+        </div>
+      </section>
+
+      {% endif %}
+
+      {% endif %}
+
+      {% else %}
+
+      {% if mobplatform == 'iOS' %}
+      {% if product.mobile_link %}
+
+      <h3>Download {{product.name}}<sup class="superscript">®</sup></h3>
+
+      <div class='product-header-subtext'>{{product.download_text|safe}}</div>
+
+      <a href="{{product.mobile_link}}" class="btn btn-primary btn-products"><i class="fa fa-arrow-down"></i>DOWNLOAD</a>
+
+      {% endif %}
+
+      {% endif %}
+
+      {% if mobplatform == 'Android' %}
+
+      {% if product.mobile_link2 %}
+
+      <h3>Download {{product.name}}<sup class="superscript">®</sup></h3>
+
+      <div class='product-header-subtext'>{{product.download_text|safe}}</div>
+
+      <a href="{{product.mobile_link2}}" class="btn btn-primary btn-products"><i class="fa fa-arrow-down"></i>DOWNLOAD</a>
+
+      {% endif %}
+      {% endif %}
+      {% endif %}
+      {% endif %}
+
+      <div class="products-search-container">
+        <section class="products-listing-container margin top medium">
+          <h3 id="header">{{product.name}}<sup class="superscript">®</sup> Catalog</h3>
+        </section><!--END .products-listing-container -->
+      </div><!--END .products-search-container -->
+
+  		<input id="search-input-2" type="text" placeholder="Type to filter the list below">
+
+      <ul id="list" class="products-listing">
+        {% for item in catalog_items %}
+        <li style="line-height: 150%;">{{item.performance}}</li>
+        {% endfor %}
+      </ul><!--END .products-listing -->
+
+    </div><!--END .products-main-right -->
+
+  </section><!--END .products-main -->
+
+<!-- ############################## END PRODUCT BODY ############################## -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<script src="{{ MEDIA_URL }}js/jquery.fastLiveFilter.js"></script>
+
+<script type="text/javascript">
+
+// Load FAQ list via ajax
+  $("#list2").load("/ajax/faq/{{ faqname }}/true,true,true");
+
+
+// JS to control hide/show toggles on Support page FAQs
+$(function () {
+  var salesToggle = $('#sales'),
+      technicalToggle = $('#technical'),
+      generalToggle = $('#general');
+  var sales = true;
+  var technical = true;
+  var general = true;
+  salesToggle.on('click', function () {
+    sales = !sales;
+    salesToggle.toggleClass('sales2');
+    var categories = general.toString() + ',' + sales.toString() + ',' + technical.toString();
+    // Reload FAQ list via ajax
+    $("#list2").load("/ajax/faq/{{ faqname }}/" + categories);
+  });
+
+  technicalToggle.on('click', function () {
+    technical = !technical;
+    technicalToggle.toggleClass('technical2');
+    var categories = general.toString() + ',' + sales.toString() + ',' + technical.toString();
+    // Reload FAQ list via ajax
+    $("#list2").load("/ajax/faq/{{ faqname }}/" + categories);
+  });
+
+  generalToggle.on('click', function () {
+    general = !general;
+    generalToggle.toggleClass('general2');
+    var categories = general.toString() + ',' + sales.toString() + ',' + technical.toString();
+    // Reload FAQ list via ajax
+    $("#list2").load("/ajax/faq/{{ faqname }}/" + categories);
+  });
+});
+
+$(function () {
+  var faqHeader = $('.faq-questions-header-2'),
+      faqBody   = $('.faq-questions-answer-2'),
+      faqTogglePlus = $('.container-right-plus'),
+      faqToggleMinus = $('.container-right-minus');
+
+  faqHeader.on('click', function () {
+    $(this).toggleClass('active-header-2');
+    $(this).next().toggleClass('activeFAQ');
+    $(this).children('.container-right-plus').toggle();
+    $(this).children('.container-right-minus').toggle();
+  });
+});
+
+// JS for hide/show on FAQ header/answer divs
+
+$(function () {
+  var faqHeader = $('.faq-questions-header-2b'),
+      faqBody   = $('.faq-questions-answer-2b'),
+      faqTogglePlus = $('.container-right-plus'),
+      faqToggleMinus = $('.container-right-minus');
+
+  faqHeader.on('click', function () {
+    $(this).toggleClass('active-header-2');
+    $(this).next().toggleClass('activeFAQ');
+    $(this).children('.container-right-plus').toggle();
+    $(this).children('.container-right-minus').toggle();
+  });
+});
+
+// JS to fire off support tab after coming back from support page related FAQ
+
+$(function () {
+  var tab3 = $('#tab3');
+
+  if (window.location.hash === "#fromFAQ") {
+    $('.thetab').removeClass('active');
+    $('#tab3 a').tab('show');
+  }
+});
+
+ $(function () {
+    $('.filterinput').attr('placeholder', 'Filter the list below:');
+  })();
+
+  if (location.hash) {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 1);
+  }
+  $(function(){
+    var hash = window.location.hash;
+    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+    $('.nav-tabs a').click(function (e) {
+      $(this).tab('show');
+      var scrollmem = $('body').scrollTop();
+      window.location.hash = this.hash;
+      $('html,body').scrollTop(scrollmem);
+    });
+  });
+</script>
+
+
+{% block scripts %}
+
+{% endblock %}
+
+
+<script type="text/javascript">
+  function trackConv(google_conversion_id,google_conversion_label) {
+    var image = new Image(1,1);
+    image.src = "//www.googleadservices.com/pagead/conversion/"+google_conversion_id+"/?label="+google_conversion_label+"&script=0";
+  }
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "base_main.html" %}
+
+{% block id %} id="index"{% endblock id %}
+
+{% block columnContainer %}
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li class="active"><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN FACEBOOK JS ################################ -->
+
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ################################ END FACEBOOK JS ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN HERO ################################ -->
+
+  <section id="hero-about" >
+
+    <div class="hero-about-left">
+      <a href="#">
+        <img src="{{ MEDIA_URL }}images/rms_icon.svg">
+      </a>
+    </div><!--END .hero-about-left -->
+
+    <div class="hero-about-right">
+      <p>{{ pageheader.about }}</p>
+    </div><!--END .hero-about-right -->
+
+    <div class="fb-like fb-like-alt" data-href="https://www.facebook.com/RealtimeMusicSolutions?ref=aymt_homepage_panel" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+
+  </section><!--END #hero-about -->
+
+ <!-- ################################ END HERO ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN SEARCH BAR ################################ -->
+
+  <section class="search-bar">
+
+    <ul class="search-bar-left">
+      <li>
+        <a href="https://twitter.com/rms_sinfonia" target="_blank"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/company/realtime-music-solutions-llc?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+      </li>
+    </ul>
+
+    <div class="search-bar-right">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .search-bar-right -->
+
+  </section><!--END .search-bar -->
+
+<!-- ################################ END SEARCH BAR ################################ -->
+
+
+
+
+
+<!-- ######################### BEGIN ABOUT BODY CONTAINER ######################### -->
+
+  <section id="body-container">
+
+    <section id="body-about">
+
+      <div class="body-about-left">
+
+        <h1 class="border">{{ about.title }}</h1>
+
+        {{ about.content|safe }}
+
+      </div><!--END .body-about-left -->
+
+      <figure class="body-about-right">
+
+          <img src="{{ MEDIA_URL }}{{ about.img }}" alt="{{ about.img_text }}">
+
+          <figcaption>{{ about.img_text }}</figcaption>
+
+      </figure><!--END .body-about-right -->
+
+    </section><!--END #body-about -->
+
+  </section><!--END #body-container -->
+
+<!-- ######################### END ABOUT BODY CONTAINER ######################### -->
+
+
+
+
+<!-- ###### BEGIN CUSTOM JAVASCRIPT ####### -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+{% endblock %}

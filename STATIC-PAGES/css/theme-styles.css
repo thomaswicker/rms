@@ -1,5 +1,5 @@
 body {
-  background-color: #ccc;
+  background-color: #ddd;
 }
 
 .top-bar {
@@ -15,12 +15,12 @@ a {
   color: #42aae0;
 }
 
-p, .body-text {
+p, div, .body-text {
   float: left;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
-  line-height: 1.3rem;
+  line-height: 1.4rem;
   -ms-word-break: break-all;
   /* Be VERY careful with this, breaks normal words wh_erever */
   word-break: break-all;
@@ -252,8 +252,32 @@ strong {
 }
 
 .next-video-btn {
-  float: left;
-  margin-bottom: 1rem;
+  float: right;
+  margin-top: -5rem;
+  margin-bottom: 2rem;
+  font-size: .9rem;
+}
+@media only screen and (min-width: 1201px) and (max-width: 1455px) {
+  .next-video-btn {
+    float: left;
+    margin-right: 2rem;
+    margin-top: 0rem;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .next-video-btn {
+    float: left;
+    margin-right: 2rem;
+    margin-top: 0rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .next-video-btn {
+    float: left;
+    width: 100%;
+    margin-right: 2rem;
+    margin-top: 0rem;
+  }
 }
 @media only screen and (min-width: 0px) and (max-width: 767px) {
   .next-video-btn {
@@ -264,11 +288,44 @@ strong {
   }
 }
 
+.next-video-btn-alt {
+  float: right;
+  margin-top: -8rem;
+  margin-bottom: 2rem;
+  font-size: .9rem;
+}
+@media only screen and (min-width: 1201px) and (max-width: 1455px) {
+  .next-video-btn-alt {
+    margin-top: -8rem;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  .next-video-btn-alt {
+    margin-right: 0rem;
+    margin-top: -8rem;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  .next-video-btn-alt {
+    float: right;
+    width: auto;
+    margin-right: 0rem;
+    margin-top: -8rem;
+  }
+}
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .next-video-btn-alt {
+    float: left;
+    width: 100%;
+    margin-right: 0rem;
+    margin-top: 0rem;
+  }
+}
 
 .main-theme {
   float: left;
   width: 100%;
-  background-color: #ccc;
+  background-color: #ddd;
   margin-bottom: 2rem;
   padding: 1.5rem 10rem 1.5rem 10rem;
 }
@@ -288,7 +345,7 @@ strong {
   .main-theme {
     background-color: #ddd;
     margin-top: 5px;
-    padding: 1rem .75rem 0rem .75rem;
+    padding: 1rem .35rem 0rem .35rem;
   }
 
   .main-theme img {
@@ -370,7 +427,6 @@ img.pull-left {
   background-color: white;
   padding: 2.2rem 2rem 3rem 2rem;
   border: 2px solid #bcbcbc;
-  max-width: 1100px;
 }
 
 @media only screen and (min-width: 768px) and (max-width: 1200px) {
@@ -389,12 +445,8 @@ img.pull-left {
     width: 99%;
     margin-left: .5%;
     margin-right: .5%;
-    padding: 1.4rem 1.5rem 3rem 1.5rem;
+    padding: 1.4rem 1.1rem 3rem 1.1rem;
   }
-}
-
-.pull-left {
-  margin-bottom: 3rem;
 }
 
 .theme-container a {
@@ -433,11 +485,16 @@ th {
 h1 {
   float: left;
   width: 100%;
-  font-size: 30px;
+  font-size: 2rem;
+  line-height: 2.4rem;
   padding-bottom: 5px;
   color: #000000;
 }
 @media only screen and (min-width: 0px) and (max-width: 767px) {
+  h1 {
+    line-height: 2.4rem;
+  }
+
   h1, h2, h3, h4, h5 ,h6 {
     max-width: 100%;
   }
@@ -454,11 +511,56 @@ h1.theme-subheader {
   margin-bottom: 1rem;
   border-bottom: 1px solid #bbb;
 }
+@media only screen and (min-width: 1401px) and (max-width: 1600px) {
+  h1.theme-subheader {
+    width: 100%;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    padding-right: 200px;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #bbb;
+  }
+}
+@media only screen and (min-width: 1201px) and (max-width: 1400px) {
+  h1.theme-subheader {
+    width: 100%;
+    font-size: 1.7rem;
+    line-height: 2rem;
+    padding-right: 200px;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #bbb;
+  }
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+  h1.theme-subheader {
+    width: 100%;
+    font-size: 2rem;
+    line-height: 2rem;
+    padding-right: 0px;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #bbb;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  h1.theme-subheader {
+    width: 100%;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    padding-right: 0px;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #bbb;
+  }
+}
 @media only screen and (min-width: 0px) and (max-width: 767px) {
   h1.theme-subheader {
     width: 100%;
     font-size: 1.4rem;
     line-height: 2rem;
+    padding-right: 0px;
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
     border-bottom: 1px solid #bbb;
@@ -483,9 +585,10 @@ h2.theme-subheader {
   float: left;
   width: 100%;
   font-size: 1.3rem;
-  color: #42aae0;
-  margin-bottom: 2rem;
   font-style: italic;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: .7rem;
 }
 
 h3 {
@@ -963,6 +1066,14 @@ h6 {
   margin-top: .5rem !important;
   margin-bottom: .5rem !important;
   list-style-type: initial !important;
+  -ms-word-break: break-all;
+  /* Be VERY careful with this, breaks normal words wh_erever */
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 .theme-container ul li {
@@ -980,6 +1091,14 @@ h6 {
   margin-top: .5rem !important;
   margin-bottom: .5rem !important;
   list-style-type: initial !important;
+  -ms-word-break: break-all;
+  /* Be VERY careful with this, breaks normal words wh_erever */
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 .theme-container ol li {
@@ -994,6 +1113,14 @@ h6 {
 .theme-container ul.list-striped {
   list-style-type: none !important;
   margin-left: 0px !important;
+  -ms-word-break: break-all;
+  /* Be VERY careful with this, breaks normal words wh_erever */
+  word-break: break-all;
+  /* Non standard for webkit */
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
 }
 
 .theme-container ul.list-striped li {

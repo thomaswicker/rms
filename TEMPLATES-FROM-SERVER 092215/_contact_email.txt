@@ -1,0 +1,14 @@
+From: {{ firstName|safe }} {{ lastName|safe }}
+Organization: {{ organizationName|safe }}
+Email: {{ email }}
+Phone: {{ phone }}
+Address: {{ street|safe  }}
+City: {{ city|safe }}
+State: {{ state }}
+Country: {{ country }}
+Postal Code: {{ postalCode }}
+
+Products: {{ products }}
+Message:
+
+{{ message|safe }}

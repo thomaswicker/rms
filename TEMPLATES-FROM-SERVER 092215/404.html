@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Realtime Music Solutions</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Realtime Music Solutions">
+  <meta name="author" content="Thomas Wicker (Designer) - http://www.thomaswicker.com/ | Michael Richo (Coder) - mricho495@gmail.com">
+  <meta name="abstract" content="Realtime Music Solutions - Innovation For The Arts" />
+  <meta name="classification" content="Sinfonia, OrchExtra, InstrumentalEase, RMS Coach, RehearScore, AccompanEase, RMS Keyboards, Keyboard Patch Solutions, KeyboardEase, RMS Mix, MT Pit, Sides, Scene Partner, Music Theatre International, MTI, Rodgers and Hammerstein, Rodgers & Hammerstein, R&H, RnH, Tracks, Orchestral Tracks, Virtual Orchestra" />
+  <meta name="googlebot" content="all, index, follow" />
+  <meta name="googlebot" content="all, index, follow, none, noindex, nofollow, noarchive, nosnippet" />
+  <meta name="revisit" content="2 days" />
+  <meta name="revisit-after" content="2 days" />
+  <meta name="robots" content="all, index, follow" />
+  <meta name="robots" content="all, index, follow, none, noindex, nofollow" />
+  <meta name="subject" content="Sinfonia, OrchExtra, InstrumentalEase, RMS Coach, RehearScore, AccompanEase, RMS Keyboards, Keyboard Patch Solutions, KeyboardEase, RMS Mix, MT Pit, Sides, Scene Partner, Music Theatre International, MTI, Rodgers and Hammerstein, Rodgers & Hammerstein, R&H, RnH, Tracks, Orchestral Tracks, Virtual Orchestra" />
+  <meta name="title" content="Realtime Music Solutions" />
+  <meta name="copyright" content="Copyright © 2015, Realtime Music Solutions. All rights reserved." />
+  <meta name="description" content="Technology that enhances productions, empowers performers, and enthralls audiences." />
+  <meta name="keywords" content="Sinfonia, OrchExtra, InstrumentalEase, RMS Coach, RehearScore, AccompanEase, RMS Keyboards, Keyboard Patch Solutions, KeyboardEase, RMS Mix, MT Pit, Sides, Scene Partner, Music Theatre International, MTI, Rodgers and Hammerstein, Rodgers &amp; Hammerstein, R&amp;H, RnH, Tracks, Orchestral Tracks, Virtual Orchestra" />
+  <meta name="content-type" content="text/html; charset=ISO-8859-1" /></HEAD>
+
+  <!-- Mobile viewport optimized: h5bp.com/viewport -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.min.css">
+  <link rel="stylesheet" href="{{ MEDIA_URL }}css/styles.min.css">
+
+  <!-- BEGIN Google Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+  <!-- END Google Fonts -->
+
+  <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="shortcut icon" href="/media/images/favicon.ico" type="image/icon"/>
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+</head>
+
+<body>
+
+  <section class="container-main-404">
+
+  <!-- ################################ BEGIN NAVBAR ################################ -->
+
+    <span class="sticky">
+
+      <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+        <ul class="title-area">
+          <li class="name">
+            <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+        </ul>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li><a href="{% url 'main.views.index' %}">home</a></li>
+            <li><a href="/about">about</a></li>
+            <li class="has-dropdown">
+              <a href="#">products</a>
+              <ul class="dropdown">
+                {% for product_nav in products %}
+                  <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li><a href="/news">news</a></li>
+            <li><a href="/contact">contact</a></li>
+          </ul><!--END .right -->
+        </section><!--END .top-bar-section -->
+      
+      </nav><!--END .top-bar -->
+
+    </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+    <section class="bodyError medium-12 columns">
+
+      <div class="body404Error">
+
+        <div class="medium-12 columns">
+
+          <div class="icon"><i class="fa fa-exclamation-circle"></i></div>
+          <div class="text1">404</div>
+          <p class="text2">Page Not Found</p>
+          <p class="text3">Sorry but the page you were looking for was not found. It could be that you clicked an outdated link, or we may have moved the file.</p>
+          <p class="text4">Please use the navigation above to find what you are looking for or click one of the links below to return home.</p>
+        
+        </div>
+
+        <div class="medium-12 columns bullets-404">
+
+          <div class="sub-header-404">Perhaps you were looking for one of the following links:</div>
+
+          <ul>
+            <li><a href="/products/RMS Coach">AccompanEase</a> (powered by RMS Coach)</li>
+            <li><a href="/products/RMS Keyboards">Keyboard Patch Solutions</a> (powered by RMS Keyboards)</li>
+            <li><a href="/products/RMS Keyboards">KeyboardEase</a> (powered by RMS Keyboards)</li>
+            <li><a href="/products/Sinfonia">InstrumentalEase</a> (powered by Sinfonia)</li>
+            <li><a href="/products/Sinfonia">OrchExtra</a> (powered by Sinfonia)</li>
+            <li><a href="/products/RMS Mix">RMS Mix</a></li>
+          </ul>
+
+        </div>
+
+        <div class="medium-12 columns bullets-404-bottom">
+
+          <p>If you have other questions or if we can be of any assistance, please don't hesitate to <a href="/contact/">contact us</a>.</p>
+
+          <a href="/" class="button">Back to the Home Page</a>
+
+        </div>
+
+      </div><!-- body404Error -->
+
+    </section><!-- container main -->
+
+    <!-- ################################ END 404/500  ################################ -->
+
+      <script type="text/javascript">
+        function trackConv(google_conversion_id,google_conversion_label) {
+          var image = new Image(1,1);
+          image.src = "//www.googleadservices.com/pagead/conversion/"+google_conversion_id+"/?label="+google_conversion_label+"&script=0";
+        }
+      </script>
+
+  <!-- ########################!!!!!!!!!!!!!!! DO NOT END ANYTHING BELOW THIS LINE !!!!!!!!!!!!!!!######################## -->
+      
+
+      <script src="js/foundation.min.js"></script>
+
+      <script type="text/javascript">
+        $(document).foundation();
+      </script>
+
+      <footer class="footer-container">
+
+        <div class="footer-left medium-3 large-4 columns">
+          <p><span>Site by:</span> <a href="http://www.xiri.io" target="blank">xiri.io</a></p>
+        </div>
+
+        <div class="footer-middle medium-6 large-4 columns">
+          <p>Copyright © 2015, Realtime Music Solutions. All rights reserved.</p>
+        </div>
+
+        <div class="footer-right medium-3 large-4 columns">
+
+        </div>
+
+        <a href="/contact" id="footerBTN" class="btn btn-info btn-mini">
+          <i class="fa fa-envelope"></i>Email Us
+        </a>
+
+      </footer><!-- END .footer-container -->
+
+      <script src="js/application.js"></script>
+  
+    </section>
+
+  </body>
+
+</html>

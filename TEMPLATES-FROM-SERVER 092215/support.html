@@ -1,0 +1,250 @@
+ {% extends "base_main.html" %}
+
+{% block id %} id="index"{% endblock id %}
+
+{% block columnContainer %}
+
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN FACEBOOK JS ################################ -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ################################ END FACEBOOK JS ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN HERO ############################### -->
+
+  <section id="hero-FAQs" class='hero-wrapper'>
+
+    <div class="hero-support-left">
+      <a href="#"><img src="{{ MEDIA_URL }}images/carouselLogo_FAQs_v2.png"></a>
+    </div><!--END .hero-support-left -->
+
+    <div class="hero-support-right">
+      <p>{{ pageheader.faq }}</p>
+    </div><!--END .hero-support-right -->
+
+    <div class="fb-like fb-like-alt" data-href="https://www.facebook.com/RealtimeMusicSolutions?ref=aymt_homepage_panel" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>    
+
+  </section><!--END #hero-FAQs -->
+
+<!-- ############################# END HERO ############################### -->
+
+
+
+
+<!-- ######################### BEGIN SEARCH BAR ########################### -->
+
+  <section class="search-bar">
+
+    <ul class="search-bar-left">
+      <li>
+        <a href="https://twitter.com/rms_sinfonia" target="_blank"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/company/realtime-music-solutions-llc?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+      </li>
+    </ul>
+
+    <div class="search-bar-right search-bar-right-support">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .searchBarRight -->
+
+  </section><!--END .searchBar -->
+
+<!-- ########################### END SEARCH BAR ############################ -->
+
+
+
+
+
+<!-- ########################## BEGIN SUPPORT BODY ######################### -->
+
+  <section id='support-main'>
+    {% if request.META.HTTP_REFERER %}
+      <button class="btn btn-green btn-back" onClick="openPrevURL()"><i class="fa fa-arrow-left" style="margin-right: 8px;"></i>BACK</button>
+    {% endif %}
+    <section class="support-main-inner">
+    {% if request.META.HTTP_REFERER %}
+    {% endif %}
+      <h1>{{ quick_points.question }}</h1>
+      {{ quick_points.answer|safe }}
+
+    </section><!-- END .support-main-inner -->
+
+  </section><!-- END .support-main -->
+
+
+<!-- ########################## END SUPPORT BODY ######################### -->
+
+
+
+<script type="text/javascript" src="{{ MEDIA_URL }}js/products.js"></script>
+
+<!-- JS to take the back button to the previous URL -->
+<script>
+  function openPrevURL() {
+    var oldURL = document.referrer;
+    var tab3 = $('#tab3');
+    location.href=oldURL + '#fromFAQ';
+  };
+</script>
+
+<!-- JS for list filter on The Catalog Section  -->
+
+<script>
+
+  (function ($) {
+    jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+    };
+
+    function listFilter(header, list) {
+      var form = $("<form>").attr({"class":"filterform","action":"#"}),
+      input = $("<input>").attr({"class":"filterinput","type":"text"});
+      $(form).append(input).appendTo(header);
+
+      $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+          $(list).find("a:not(:Contains(" + filter + "))").parent().slideUp();
+          $(list).find("a:Contains(" + filter + ")").parent().slideDown();
+        } else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+      .keyup( function () {
+        $(this).change();
+      });
+    }
+
+    $(function () {
+      listFilter($("#header"), $("#list"));
+
+    });
+  }(jQuery));
+
+
+  (function ($) {
+    jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+    };
+
+    function listFilter2(header, list) {
+      var form = $("<form>").attr({"class":"filterform","action":"#"}),
+      input = $("<input>").attr({"class":"filterinput","type":"text"});
+      $(form).append(input).appendTo('#header2');
+
+      $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+          $(list).find("a:not(:Contains(" + filter + "))").parent().slideUp();
+          $(list).find("a:Contains(" + filter + ")").parent().slideDown();
+        } else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+      .keyup( function () {
+        $(this).change();
+      });
+    }
+
+    $(function () {
+      listFilter2($("#header2"), $("#list2"));
+
+    });
+  }(jQuery));
+
+</script>
+
+<script>
+
+  $(function () {
+    $('.filterinput').attr('placeholder', 'Filter the list below:');
+  })();
+
+  if (location.hash) {
+    setTimeout(function() {
+      window.scrollTo(0, 0);
+    }, 1);
+  }
+  $(function(){
+    var hash = window.location.hash;
+    hash && $('ul.nav a[href="' + hash + '"]').tab('show');
+
+    $('.nav-tabs a').click(function (e) {
+      $(this).tab('show');
+      var scrollmem = $('body').scrollTop();
+      window.location.hash = this.hash;
+      $('html,body').scrollTop(scrollmem);
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  function trackConv(google_conversion_id,google_conversion_label) {
+    var image = new Image(1,1);
+    image.src = "//www.googleadservices.com/pagead/conversion/"+google_conversion_id+"/?label="+google_conversion_label+"&script=0";
+  }
+</script>
+
+
+{% endblock %}

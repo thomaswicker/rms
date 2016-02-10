@@ -1,0 +1,213 @@
+{% extends "base_main.html" %}
+{% block columnContainer %}
+
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li class="active"><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN FACEBOOK JS ################################ -->
+
+  <div id="fb-root"></div>
+
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ################################ END FACEBOOK JS ################################ -->
+
+
+
+
+
+<!-- ################################## BEGIN HERO ################################### -->
+
+  <section id="hero-news" class="hero-news" >
+
+    <div class="hero-news-left">
+      <img src="{{ MEDIA_URL }}images/carouselLogo_News.png">
+    </div><!--END .hero-news-left -->
+
+    <div class="hero-news-right">
+      <p>{{ pageheader.news }}</p>
+    </div><!--END .hero-news-right -->
+
+    <div class="fb-like fb-like-news" data-href="https://www.facebook.com/RealtimeMusicSolutions?ref=aymt_homepage_panel" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+
+  </section><!--END .hero-news -->
+
+<!-- ################################### END HERO ################################### -->
+
+
+
+
+
+<!-- ################################ BEGIN SEARCH BAR ################################ -->
+
+  <section class="search-bar">
+
+    <ul class="search-bar-left">
+      <li>
+        <a href="https://twitter.com/rms_sinfonia" target="_blank"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/company/realtime-music-solutions-llc?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+      </li>
+    </ul>
+
+    <div class="search-bar-right">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .search-bar-right -->
+
+  </section><!--END .search-bar -->
+
+<!-- ################################ END SEARCH BAR ################################ -->
+
+
+
+
+
+<!-- ############################### BEGIN NEWS BODY ############################### -->
+
+  <section id="body-news">
+
+    <section class="body-news-left">
+
+      <h1 class="subtitle">
+        {% if pagetype == "single" %}
+        {{ highlights.0.title }}
+        {% elif pagetype == "year" %}
+        News & Highlights for {{ highlights.0.pub_date|date:'Y' }}
+        {% elif pagetype == "category" %}
+        {{ category.0 }}<sup class="superscript">®</sup> News
+        {% elif pagetype == "general" %}
+        General News
+        {% else %}
+        Highlights
+        {% endif %}
+      </h1>
+
+      <ul class="news-item-list">
+        {% if highlights.count == 0 %}
+        <h2>No related news items were found.</h2>
+        {% else %}
+
+          {% for item in highlights %}
+	        <li class="news-item-block">
+	          {% if pagetype != "single" %}<h2>{{item.title}}</h2>{% endif %}
+	          {% if not item.hide_date %}<p class="news-item-date">{{item.pub_date|date}}</p> {% endif %}{{item.copy|safe}}
+	          {% if item.image %}
+	          <img src="{{ MEDIA_URL }}{{item.image}}">
+	          {% endif %}
+	        </li>
+          {% endfor %}
+
+        {% endif %}
+      </ul>
+    </section><!--END .body-news-left -->
+
+    <aside class="body-news-right">
+
+      <h3 class="news-header">RMS News Archives</h3>
+
+      <section class="body-news-right-inner">
+
+          <select id="news-select" data-placeholder="Choose..." name="sinfoniaSupport" onChange="if(this.selectedIndex!=0)
+            self.location=this.options[this.selectedIndex].value">
+              <option value="" disabled selected>-- Choose --</option>
+            {% for year in years %}
+              <option value="/news/year/{{ year|date:'Y' }}">{{ year|date:'Y' }} News Archives</option>
+            {% endfor %}
+          </select>
+
+      </section><!--END .body-news-right-inner-->
+
+      <h3 class="news-header">News Categories</h3>
+
+      <section class="body-news-right-inner">
+
+        <ul id="news-categories">
+          <li id="news-categories-all"{% if pagetype == "highlights" %} class="active-news-tab"{% endif %}><a href="/news">Highlights <span>({{ highlightscount }})</span></a></li>
+          {% for product in products %}
+          <li id="news-categories-sinfonia"{% if category.0.name == product.name %} class="active-news-tab"{% endif %}><a href="/news/category/{{product.name}}/">
+          {{ product.name }}<sup class="superscript">&reg;</sup> <span>({{product.newscount}})</span></a></li>
+          {% endfor %}
+          <li id="news-categories-general-news"{% if pagetype == "general" %} class="active-news-tab"{% endif %}><a href="/news/category/general/">General News <span>({{ generalcount }})</span></a></li>
+        </ul>
+
+      </section><!--END .body-news-right-inner-->
+
+    </aside><!--END .body-news-right -->
+
+  </section><!--END .body-news -->
+
+<!-- ############################### END NEWS BODY ############################### -->
+
+
+
+
+{% block scripts %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+
+<script type="text/javascript">
+
+  // Tooltip JS
+
+  $(function () {
+    $("[rel='tooltip']").tooltip();
+  });
+
+</script>
+
+{% endblock %}
+
+
+</body>
+</html>
+{% endblock %}

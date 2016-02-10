@@ -1,0 +1,73 @@
+
+<script src="{{ MEDIA_URL }}js/foundation.min.js"></script>
+<script src="{{ MEDIA_URL }}js/modernizr.js"></script>
+
+<script type="text/javascript">
+  $(document).foundation();
+</script>
+
+<script src="{{ MEDIA_URL }}js/foundation.tooltip.js"></script>
+
+<footer class="footer-container">
+
+  <div class="footer-top">
+
+    <section class="footer-section footer-section-1">
+      <h4>Home</h4>
+      <ul>
+        <li><a href="{% url 'main.views.index' %}" >Welcome</a></li>
+      </ul>
+    </section><!--END .footer-section-1 -->
+
+    <section class="footer-section footer-section-2">
+      <h4>Products</h4>
+      <ul>
+        {% for product_nav in products %}
+        <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+        {% endfor %}
+      </ul>
+    </section><!--END .footer-section-2 -->
+
+    <section class="footer-section footer-section-3">
+      <h4>News</h4>
+      <ul>
+        <li><a href="/news">RMS News</a></li>
+      </ul>
+    </section><!--END .footer-section-3 -->
+
+    <section class="footer-section footer-section-4">
+      <h4>Support</h4>
+      <ul>
+        {% for product_nav in products %}
+        <li><a href="/products/{{product_nav.name}}/support/">{{product_nav.name}}</a></li>
+        {% endfor %}
+      </ul>
+    </section><!--END .footer-section-4 -->
+
+    <section class="footer-section footer-section-5">
+      <h4>Contact</h4>
+      <ul class="contact-info-block">
+        <li>121 W. 27th Street</li>
+        <li>Suite 705</li>
+        <li>New York, NY 10001</li>
+        <li><a href="tel:2126200774">212.620.0774</a></li>
+        <li>
+          <a href="/contact"> <button id="footerBTN" class="btn btn-info btn-small col-lg-11 col-md-12 col-sm-12 col-xs-11" ><i class="fa fa-envelope"></i>Email Us</button></a>
+        </li>
+      </ul>
+    </section><!--END .footer-section-5 -->
+
+  </div><!--END .footer-top -->
+
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <p>Site design: <a href="http://www.xiri.io" target="blank">xiri.io</a></p>
+    </div>
+    <div class="footer-bottom-right">
+      <p>Copyright © 2015, Realtime Music Solutions. All rights reserved.</p>
+    </div>
+  </div><!--END .footer-bottom -->
+
+</footer><!-- END .footer-container -->
+
+

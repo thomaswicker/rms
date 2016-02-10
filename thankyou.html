@@ -1,0 +1,206 @@
+{% extends "base_main.html" %}
+
+
+{% block tracker %}
+  {% for snippet in snippets %}
+    {{ snippet.code|safe }}
+  {% endfor %}
+
+<script type="text/javascript">
+window.setTimeout(function(){
+    window.location.href = "{% if request.user_agent.is_pc %}{% if platform == 'Windows' %}{% if product.download_link %}{{product.download_link}}{% endif %}{% endif %}{% if platform == 'Mac' %}{% if product.mac_link %}{{product.mac_link}}{% endif %}{% endif %}{% else %}{% if mobplatform == 'iOS' %}{{ product.mobile_link }}{% endif %}{% if mobplatform == 'Android' %}{{ product.mobile_link2 }}{% endif %}{% endif %}";
+
+    }, 4000);
+</script>
+
+{% endblock tracker %}
+
+{% block id %} id="index"{% endblock id %}
+
+{% block columnContainer %}
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li class="active"><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN FACEBOOK JS ################################ -->
+
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ################################ END FACEBOOK JS ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN HERO ################################ -->
+
+  <section id="hero-{{product.spacelessname|lower}}" class='hero-wrapper'>
+
+    <div class="hero-wrapper-left">
+      <img class="{{product.spacelessname|lower}}-products-left" src="{{ MEDIA_URL }}{{product.thumbnail}}" alt="{{product.spacelessname}} Logo">
+    </div><!--/.hero-wrapper-left -->
+
+    <div class="hero-wrapper-right">
+      <img class="{{product.spacelessname|lower}}-products-right" src="{{ MEDIA_URL }}{{product.banner_noext}}.png" alt="{{product.spacelessname}} Title">
+    </div><!--/.hero-wrapper-right -->
+
+  </section><!--END #hero-productname -->
+
+ <!-- ################################ END HERO ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN SEARCH BAR ################################ -->
+
+  <section class="search-bar">
+
+    <ul class="search-bar-left">
+      <li>
+        <a href="https://twitter.com/rms_sinfonia" target="_blank"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/company/realtime-music-solutions-llc?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+      </li>
+    </ul>
+
+    <div class="search-bar-right">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .search-bar-right -->
+
+  </section><!--END .search-bar -->
+
+<!-- ################################ END SEARCH BAR ################################ -->
+
+
+
+
+
+<!-- ######################### BEGIN ABOUT BODY CONTAINER ######################### -->
+
+  <section class="thank-you-container">
+
+    {% if thankyou %}
+      <div class="thank-you-container-inner">
+    
+        <h3>Thank you for downloading this product.</h3>
+
+        <p class="your-download-text">{{ thankyou|safe }}</p>
+        
+        <a href="http://www.rms.biz" class="btn btn-info btn-mini">Back to Home</a>
+
+      </div>
+
+    {% else %}
+      <div class="thank-you-container-inner">
+        
+        <h3>Thank you for downloading this product.</h3>
+
+        <p class="your-download-text">Your download should start automatically. If not, you can <a href='
+          {% if request.user_agent.is_pc %}
+          {% if platform == 'Windows' %}
+          {% if product.download_link %}
+
+          {{product.download_link}}
+          {% endif %}
+          {% endif %}
+          {% if platform == 'Mac' %}
+          {% if product.mac_link %}
+
+          {{product.mac_link}}
+          {% endif %}
+          {% endif %}
+
+          {% else %}
+
+          {% if mobplatform == 'iOS' %}
+          {% if product.mobile_link %}
+
+          {{product.mobile_link}}
+          {% endif %}
+          {% endif %}
+
+          {% if mobplatform == 'Android' %}
+          {% if product.mobile_link2 %}
+
+          {{product.mobile_link2}}
+          {% endif %}
+          {% endif %}
+
+          {% endif %}
+
+          '>click here</a> to download the file.
+        </p>
+
+        <p class="your-download-text">Thank you for downloading {{ product }}. We want you to have an excellent experience with our products. If you have questions or if we can be of any assistance, please do not hesistate to <a href="/contact/">contact us</a>.
+        </p>
+        
+        <a href="http://www.rms.biz" class="btn btn-info">Back to Home</a>
+      
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+<!-- ######################### END ABOUT BODY CONTAINER ######################### -->
+
+
+
+
+<!-- ###### BEGIN CUSTOM JAVASCRIPT ####### -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+{% endblock %}

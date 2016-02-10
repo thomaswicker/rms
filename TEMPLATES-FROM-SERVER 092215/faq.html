@@ -1,0 +1,127 @@
+<script type="text/javascript">
+
+    $(function() {
+        $('#search-input').fastLiveFilter('#list2');
+        $('#search-input-2').fastLiveFilter('#list');
+    });
+
+// FAQ header clicks
+$(function () {
+  var faqHeader = $('.faq-questions-header'),
+      faqBody   = $('.faq-questions-answer'),
+      faqTogglePlus = $('.container-right-plus'),
+      faqToggleMinus = $('.container-right-minus');
+
+  faqHeader.on('click', function () {
+    $(this).toggleClass('activeHeader');
+    $(this).next().toggleClass('activeFAQ');
+    $(this).children('.container-right-plus').toggle();
+    $(this).children('.container-right-minus').toggle();
+  });
+});
+
+// FAQ search box
+  $('#faq-search-input').keyup(function(){
+   var valThis = $(this).val().toLowerCase();
+   if(valThis === ""){
+    $('#faq-search-results > h3').show();
+} else {
+    $('#faq-search-results > h3').each(function(){
+      var text = $(this).text().toLowerCase();
+      (text.indexOf(valThis) >= 0) ? $(this).show() : $(this).hide();
+    });
+  };
+});
+
+// Script to filter list items based on input
+  (function ($) {
+    jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+    };
+
+    function listFilter(header, list) {
+      var form = $("<form>").attr({"class":"filterform","action":"#"}),
+      input = $("<input>").attr({"class":"filterinput","type":"text"});
+      $(form).append(input).appendTo('#header2a');
+
+      $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+          $(list).find("a:not(:Contains(" + filter + "))").parent().slideUp();
+          $(list).find("a:Contains(" + filter + ")").parent().slideDown();
+        }
+
+        else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+      .keyup( function () {
+        $(this).change();
+      });
+    }
+
+    $(function () {
+      listFilter($("#header2a"), $("#list"));
+
+    });
+  }(jQuery));
+
+
+  (function ($) {
+    jQuery.expr[':'].Contains = function(a,i,m){
+      return (a.textContent || a.innerText || "").toUpperCase().indexOf(m[3].toUpperCase())>=0;
+    };
+
+    function listFilter2(header, list) {
+      var form = $("<form>").attr({"class":"filterform","action":"#"}),
+      input = $("<input>").attr({"class":"filterinput","type":"text"});
+      $(form).append(input).appendTo('#header2b');
+
+      $(input)
+      .change( function () {
+        var filter = $(this).val();
+        if(filter) {
+          $(list).find("li p span:not(:Contains(" + filter + "))").parent().parent().slideUp();
+          $(list).find("li p span:Contains(" + filter + ")").parent().parent().slideDown();
+        } else {
+          $(list).find("li").slideDown();
+        }
+        return false;
+      })
+
+      .keyup( function () {
+        $(this).change();
+      });
+    }
+
+    $(function () {
+      listFilter2($("#header2b"), $("#list2"));
+
+    });
+  }(jQuery));
+
+
+
+</script>
+
+
+  {% for item in quick_points %}
+  <li class="{{ item.type|lower }}-category">
+    <img src="/media/images/tag_{{ item.type|lower }}.png" alt="{{ item.type }} questions">
+    <section class="{{ item.type|lower }}Questions faq-questions-header">
+      <div class="container-left {{ item.type|lower }}-color"></div>
+      <div class="container-middle">
+        {{ item.question }}
+      </div>
+      <div class="container-right-plus"><i class="fa fa-angle-left"></i></div>
+      <div class="container-right-minus"><i class="fa fa-angle-down"></i></div>
+    </section>
+    <section class="faq-questions-answer">
+      {{ item.answer|safe }}
+    </section>
+  </li>
+
+  {% endfor %}
+

@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Programme     
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100707
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>RMS Keyboards
+<title>RMS Coach® Manual - Menus</title>
+<sup>&reg;</sup> Manual - Introduction</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script-->
+<script src="jquery.js"></script>
+<script>
+$(function () {
+  
+  var msie6 = $.browser == 'msie' && $.browser.version < 7;
+  
+  if (!msie6) {
+    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('margin-top').replace(/auto/, 0));
+    $(window).scroll(function (event) {
+      // what the y position of the scroll is
+      var y = $(this).scrollTop();
+      
+      // whether that's below the form
+      if (y >= top) {
+        // if so, ad the fixed class
+        $('#sidebar').addClass('fixed');
+      } else {
+        // otherwise remove it
+        $('#sidebar').removeClass('fixed');
+      }
+    });
+  }  
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22592324-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header">
+      <div id="logo">
+        <h1><a href="index.html">RMS Coach<sup>&reg;</sup></a></h1>
+        <p> <a href="http://www.rms.biz">Realtime Music Solutions, LLC</a></p>
+      </div>
+      <div id="menu">
+        <ul>
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="installation.html">Installation</a></li>
+          <li><a href="quickstart.html">Quick Start</a></li>
+          <li><a href="interfaceediting.html">Interface/Editing</a></li>
+          <li class="current_page_item"><a href="menus.html">Menus</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- end #header -->
+  <div id="page-wrapper">
+    <div id="page">
+      <div id="page-bgtop">
+        <div id="page-bgbtm">
+          <div id="content">
+            <div class="post">
+              <h2 class="title"><a href="#">Menus</a></h2>
+              <div class="entry">
+                <p>RMS Coach® provides a variety of useful tools and customization options through the program menus.</p>
+                <h3 class="title"><a name="preferences" id="preferences"></a>Preferences</h3>
+                <p>You can access the Preferences menu through the toolbar, or by hitting CTRL-, (windows) or ⌘-, (mac).</p>
+                <p><img src="images/PrefClick.png" width="484" height="584" alt="preferencesgen" /></p>
+                <h4 class="title">General</h4>
+                <p>Underneath the general tab you can change the order of instruments that show up in the drop-down menu of the Parts list. By default it is set to &quot;General MIDI&quot; order.</p>
+                <p>You can also change the default location of backups created under the &quot;Tools&quot; menu. See Backup/Load</p>
+                <h4 class="title">Audio</h4>
+                <p>The Audio tab will provide a drop-down list of all valid audio devices on your system. If you are unable to hear sound from RMS Coach®, this is the first place you should check.</p>
+                <h4 class="title">Click</h4>
+                <p>The Click tab lets you route the metronome click to a different stereo output (if you have more than one available to your system). You can also set the volume of the click in dB (decibels).</p>
+                <h4 class="title">Functions</h4>
+                <p>The Functions tab shows a list of shortcuts assigned to F1-F12, and these shortcuts may be reassigned using the drop-down menus.</p>
+                <h4 class="title">Colors</h4>
+                <p>The Colors tab allows you to see and change the colors assigned to each of the various types of edits within the Timeline.</p>
+                <h3 class="title"><a name="file" id="file"></a>File</h3>
+                <h4 class="title">New</h4>
+                <p>Using the &quot;New&quot; command will create a clean, unedited version of your current show that you may work from.</p>
+                <h4 class="title">Save</h4>
+                <p>Saves your current edits.</p>
+                <h4 class="title">Open</h4>
+                <p>&quot;Open&quot; will provide a drop-down list of all valid showfiles saved on your computer that you may run.</p>
+                <h4 class="title">Save As</h4>
+                <p>Using the &quot;save as&quot; command allows you to create a copy of your current show file under a different name, and makes that the currently active showfile.</p>
+                <h3 class="title"><a name="modeemodep" id="modeemodep"></a>Mode-E / Mode-P</h3>
+                <p>This menu provides an alternate method of toggling between Performance Mode (Mode-P) and Edit Mode (Mode-E). The other method to do this is by toggling the lock icon on the Timeline.                </p>
+                <h3 class="title"><a name="tools" id="tools"></a>Tools</h3>
+                <h4 class="title">Backup</h4>
+                <p>Running the &quot;backup&quot; command will allow you to save the current showfile at a specific location on your hard drive, or on an attached device (such as a USB drive). This is the method by which you should share your edited showfile with cast members or the production team.</p>
+                <p>Export to RMS Mix®</p>
+                <p>This will render your show for use within RMS Mix®. For more information on RMS Mix®, please visit the <a href="http://www.rms.biz/products/RMS Mix/">RMS Mix® website</a>. </p>
+                <h4 class="title">Extend License</h4>
+                <p>If you have contacted RMS and made arrangements to extend the license of your installation of RMS Coach®, selecting this will allow you to input the extension code that RMS has sent you.</p>
+                <h4 class="title">Get Shows</h4>
+                <p>&quot;Get shows&quot; will quit out of RMS Coach® (first prompting you to save any changes) and launch the RMS Show Delivery program that was run at first installation. RMS Coach® will then relaunch at completion.</p>
+                <h4 class="title">Get Sounds</h4>
+                <p>&quot;Get sounds&quot; will likewise quit RMS Coach® and run RMS SampleSync. Run this in conjunction with the loading of any new show to make sure you have all the sounds required.</p>
+                <h4 class="title">Load</h4>
+                <p>&quot;Load&quot; will allow you to open a showfile from anywhere on your computer hard drive or attached drive. If you have sent your cast members or production team a version of the show using the &quot;Backup&quot; command, they should use &quot;Load&quot; to open it.</p>
+                <h4 class="title">MIDI reset</h4>
+                <p>&quot;MIDI reset&quot; turns off all active MIDI data, in the case of stuck notes. By default, this is bound to the F1 key.</p>
+                <h4 class="title">Share Show Data</h4>
+                <p>This allows you to send you current show to members of your production via email. For more information, please see <a href="quickstart.html#sharingshowdata">Sharing Your Showdata</a>.<br />
+                </p>
+                <h3 class="title"><a name="help" id="help"></a>Help</h3>
+                <p>Under the Help menu, you will find links to both the main Realtime Music Solutions® website as well as this manual.</p>
+                <p>If you are running a trial version, this is also where you can submit a request to purchase a license, or activate a license purchased by someone else in your organization.</p>
+<h3 class="title">&nbsp;</h3>
+</div>
+            </div>
+            <div style="clear: both;">&nbsp;</div>
+          </div>
+          <!-- end #content -->
+          <div id="sidebar-wrapper">
+            <div id="sidebar">
+              <ul>
+                <!--li>
+                  <div id="search" >
+                    <form method="get" action="#">
+                      <div>
+                        <input type="text" name="s" id="search-text" value="" />
+                        <input type="submit" id="search-submit" value="GO" />
+                      </div>
+                    </form>
+                  </div>
+                  <div style="clear: both;">&nbsp;</div>
+                </li-->
+                <li>
+                  <h2>MENUS</h2>
+                  <ul>
+                    <li><a href="#preferences">Preferences</a></li>
+                    <li><a href="#file">File</a></li>
+                    <li><a href="#modeemodep">Mode-E / Mode-P</a></li>
+                    <li><a href="#tools">Tools</a></li>
+                    <li><a href="#help">Help</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <h2>Contact</h2>
+                  <p> <a href="http://www.rms.biz">Realtime Music Solutions, LLC</a><br />
+(212) 620-0774 <br />
+<a href="http://www.realtimemusic.biz/contact/">Email us</a></p>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+          <!-- end #sidebar -->
+          <div style="clear: both;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end #page --> 
+</div>
+<div id="footer">
+  <p>Copyright (c) <script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script> Realtime Music Solutions, LLC. All rights reserved. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>

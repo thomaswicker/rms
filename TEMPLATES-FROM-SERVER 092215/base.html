@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Realtime Music Solutions</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{request.path}}"/> 
+    {% if fbimage %}
+      <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}/media/{{ fbimage }}"/> 
+    {% endif %}
+    {% if fbtitle %}
+      <meta property="og:title" content="{{ fbtitle }}"/> 
+    {% endif %}
+    {% if fbdesc %}
+      <meta property="og:description" content="{{ fbdesc|striptags }}"/> 
+    {% endif %}
+    {% if fbwidth %}
+      <meta property="og:image:height" content="{{ fbheight }}"/> 
+      <meta property="og:image:width" content="{{ fbwidth }}"/> 
+    {% endif %}
+    <meta name="description" content="Realtime Music Solutions">
+    {% include 'metatags.html' %}      
+    <!-- Mobile viewport optimized: h5bp.com/viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block css %}
+        
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/foundation.min.css">
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/styles.min.css">
+
+    <!-- BEGIN Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Parisienne' rel='stylesheet' type='text/css'>
+    <!-- END Google Fonts -->
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{ MEDIA_URL }}images/favicon.ico" type="image/icon"/>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+
+    {% endblock %}
+
+  </head>
+
+  <body>
+    <section id="container-main">
+      {% block content %}{% endblock content %}
+    </section><!--END #container-main -->
+
+    {% include "footer.html" %} 
+
+  </body>
+
+  {% block js %}
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22592324-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  {% endblock js %}
+
+</html>

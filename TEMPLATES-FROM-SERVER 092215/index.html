@@ -1,0 +1,312 @@
+{% extends "base_main.html" %}
+
+{% block id %} id="index"{% endblock id %}
+
+{% block columnContainer %}
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="active"><a href="{% url 'main.views.index' %}">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN FACEBOOK JS ################################ -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- ################################ END FACEBOOK JS ################################ -->
+
+
+
+
+<!-- ################################ BEGIN CAROUSEL ################################ -->
+
+  <ul id="RMSCarousel" class="home-carousel" data-orbit data-options="animation_speed:1000;
+                                                                    timer_speed: 5000;
+                                                                    pause_on_hover:false;
+                                                                    animation_speed:300;
+                                                                    navigation_arrows:true;
+                                                                    bullets:false;">
+  {% for product_nav in products %}
+
+    {% if products|first == product_nav %}
+    <li class='active'>
+    {% else %}
+    <li>
+    {% endif %}
+
+      <img class="carousel-image" src="{{ MEDIA_URL }}images/carouselImage_{{ product_nav.spacelessname }}_v2.jpg" alt="First slide">
+
+      <section class="orbit-caption">
+
+        <div class="orbit-caption-left {{ product_nav.spacelessname|lower }}-left">
+          <a href="/products/{{ product_nav.name }}">
+            <img style="width:90%;" src="{{ MEDIA_URL }}{{ product_nav.thumbnail }}">
+          </a>
+        </div><!--END .orbit-caption-left -->
+
+        <div class="orbit-caption-right {{product_nav.spacelessname|lower}}-right">
+          {{ product_nav.banner_text|safe }}
+        </div><!--END .caption-right -->
+
+      </section>
+
+    </li>
+    {% endfor %}
+
+  </ul>
+
+
+<!-- ################################ END CAROUSEL ################################ -->
+
+
+
+
+
+<!-- ################################ BEGIN SEARCH BAR ################################ -->
+
+  <section class="search-bar">
+
+    <div class="fb-like fb-like-home" data-href="https://www.facebook.com/RealtimeMusicSolutions?ref=aymt_homepage_panel" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+
+    <ul class="search-bar-left">
+      <li>
+        <a href="https://twitter.com/rms_sinfonia" target="_blank"><i class="fa fa-twitter"></i></a>
+      </li>
+
+      <li>
+        <a href="https://www.linkedin.com/company/realtime-music-solutions-llc?trk=top_nav_home"><i class="fa fa-linkedin"></i></a>
+      </li>
+    </ul>
+
+    <div class="search-bar-right">
+      <form id="id_search-form" action="/search/" method="GET">
+        <input type="text" class="" placeholder="search" name="q" id="id_q">
+      </form>
+    </div> <!--END .search-bar-right -->
+
+  </section><!--END .search-bar -->
+
+<!-- ################################ END SEARCH BAR ################################ -->
+
+
+
+
+
+<!-- ########################### BEGIN HOME BODY CONTAINER ############################ -->
+
+  <section id="body-container">
+
+    <aside class="body-left">
+
+      {% for product in products %}
+
+      <section class="products-row">
+
+        <div class="products-row-left">
+          <a href="/products/{{product.name}}"><img src="{{ MEDIA_URL }}{{ product.thumbnail }}"></a>
+        </div><!--END .productsRowLeft -->
+
+        <div class="products-row-right">
+
+          <h1>{{ product.name }}<sup class="superscript">®</sup></h1>
+
+          {{ product.homepage_blurb|safe }}
+
+          <p class="license-brands">
+            {% for feature in product.features.all %}
+            <span class="brand">{{feature.feature}}<span class="sup">®</span></span>
+            {% endfor %}
+          </p>
+
+          <section class="btn-container">
+
+            <div class="btn-container-left">
+              <a href="/products/{{product.name}}" class="btn btn-primary btn-mini">Learn More<i class="fa fa-angle-right" style="margin-left: 8px"></i></a>
+            </div><!--END .btn-container-left -->
+
+            <div class="btn-container-right hide-for-small-only">
+
+              {% if product.static_link %}
+
+              <a href="{{ product.static_link }}" class="has-tip btn-download" data-tooltip="right" title="Download" onClick="{{product.product_adword.all.0.code}}">
+                <i class="fa fa-arrow-down"></i>
+              </a>
+
+              {% else %}
+
+              {% if request.user_agent.is_pc %}
+              {% if product.download_link != "" %}
+
+              <a href="{% if request.user_agent.is_pc %}{{product.download_link}}{% else %}{{ product.mobile_link }}{% endif %}" class="has-tip btn-download" data-tooltip="right" title="Download" onClick="{{product.product_adword.all.0.code}}">
+                <i class="fa fa-arrow-down"></i>
+              </a>
+
+              {% endif %}
+              {% else %}
+
+              {% if product.mobile_link != "" %}
+
+              <a href="{% if request.user_agent.is_pc %}{{product.download_link}}{% else %}{{ product.mobile_link }}{% endif %}" class="has-tip btn-download" data-tooltip="right" title="Download" onClick="{{product.product_adword.all.0.code}}">
+                <i class="fa fa-arrow-down"></i>
+              </a>
+
+            </div><!--END .btn-container-right -->
+
+            <div class="btn-container-right-mobile show-for-small-only">
+
+              {% if product.static_link %}
+
+              <a href="{{ product.static_link }}" class="btn-download" title="Download" onClick="{{product.product_adword.all.0.code}}">
+                <i class="fa fa-arrow-down"></i>
+              </a>
+
+              {% else %}
+
+              {% if request.user_agent.is_pc %}
+              {% if product.download_link != "" %}
+
+              <a href="{% if request.user_agent.is_pc %}{{product.download_link}}{% else %}{{ product.mobile_link }}{% endif %}" class="btn-download" title="Download" onClick="{{product.product_adword.all.0.code}}">
+                <i class="fa fa-arrow-down"></i>
+              </a>
+
+              {% endif %}
+              {% else %}
+
+              {% if product.mobile_link != "" %}
+
+              <a href="{% if request.user_agent.is_pc %}{{product.download_link}}{% else %}{{ product.mobile_link }}{% endif %}" class="btn-download" title="Download" onClick="{{product.product_adword.all.0.code}}">
+                <i class="fa fa-arrow-down"></i>
+              </a>
+
+            </div><!--END .btn-container-right-mobile -->
+
+            {% endif %}
+            {% endif %}
+            {% endif %}
+
+            {% endif %}
+            {% endif %}
+            {% endif %}
+
+          </section><!--END .button-container -->
+
+        </div><!--END .products-row-right -->
+
+      </section><!--END .products-row -->
+
+      {% endfor %}
+
+    </aside><!--END .body-left -->
+
+
+
+
+    <aside class="body-right">
+
+      <h3 class="home-news-header">
+        <i class="fa fa-newspaper-o"></i>
+        RMS News
+      </h3>
+
+      <div class="body-right-inner" style="max-height: {{ homepagesettings.homepage_news_pixel_size }}px;">
+        <ul>
+          {% for item in highlights %}
+          <li class="home-news">
+            <h3 class="home-news-title">{{item.title}}</h3>
+            <div class="home-news-date margin bottom medium">{{item.pub_date|date:'Y-m-d'}}</div>
+            {{item.copy|safe|truncatewords_html:15}}
+            <a href="{{item.get_absolute_url}}" class="btn btn-gray btn-mini btn-view">VIEW</a>
+          </li>
+          {% endfor %}
+        </ul>
+
+      </div><!--END .body-right-inner -->
+
+      <h3 class="home-news-header">
+        <i class="fa fa-pencil-square-o"></i>
+        RMS Notes
+      </h3>
+
+      <div class="body-right-inner">
+        <ul>
+
+          {% for item in notes %}
+          <li class="home-news">
+            <h3 class="home-news-title">{{item.title}}</h3>
+            {{item.copy|safe}}
+            {% if item.link %}
+            <a href="{{item.link}}" class="btn btn-gray btn-mini">VIEW</a>
+            {% endif %}
+            {% endfor %}
+          </li>
+        </ul>
+
+      </div><!--END .body-right-inner -->
+
+    </aside><!--END .body-right -->
+
+    {% block scripts %}
+
+  </section><!--END #body-container -->
+
+<!-- ######################### END HOME BODY CONTAINER ############################ -->
+
+<script type="text/javascript">
+var browser=navigator.userAgent.toLowerCase();
+if(browser.indexOf('firefox') > -1) {
+  $( document ).ready(function() {
+    setTimeout(function () {
+      $(window).scrollTop($(window).scrollTop()+1);
+    }, 300)();
+  });
+}
+
+
+</script>
+
+  {% endblock %}
+
+  {% endblock %}

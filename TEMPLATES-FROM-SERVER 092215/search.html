@@ -1,0 +1,311 @@
+{% extends "base_main.html" %}
+
+{% comment %}
+{% load highlight %}
+{% load main_extras %}
+{% endcomment %}
+
+
+{% block scripts%}
+{{ block.super }}
+
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$("#id_searchBtnBtm").bind('click', removePunctuationCharsBtm);
+
+		function removePunctuationCharsBtm(){
+			var q = $("form#id_search-form-btm input#id_q").val();
+			q = q.replace('?', '').replace('-', ' ');
+			$("form#id_search-form-btm input#id_q").val(q);
+			$("#id_search-form-btm").submit();
+		}
+
+	});
+</script>
+
+{% endblock scripts%}
+{% block id %} id="search"{% endblock %}
+
+{% block columnContainer %}
+
+
+<!-- ################################ BEGIN NAVBAR ################################ -->
+
+  <span class="sticky">
+
+    <nav class="top-bar" data-topbar role="navigation" data-options="sticky">
+
+      <ul class="title-area">
+        <li class="name">
+          <a class="navbar-brand" href="{% url 'main.views.index' %}"><img src="{{ MEDIA_URL }}images/rms_logo.svg"></a>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li><a href="{% url 'main.views.index' %}">home</a></li>
+          <li><a href="/about">about</a></li>
+          <li class="has-dropdown">
+            <a href="#">products</a>
+            <ul class="dropdown">
+              {% for product_nav in products %}
+                <li><a href="/products/{{product_nav.name}}">{{product_nav.name}}</a></li>
+              {% endfor %}
+            </ul>
+          </li>
+          <li><a href="/news">news</a></li>
+          <li><a href="/contact">contact</a></li>
+        </ul><!--END .right -->
+      </section><!--END .top-bar-section -->
+    
+    </nav><!--END .top-bar -->
+
+  </span><!--END .sticky -->
+
+<!-- ################################ END NAVBAR ################################ -->
+
+
+
+
+
+
+	<section id="search-container">
+
+		<aside class="search-bar-search-page">
+			<form id="id_search-form" class="search-bar-form" action="/search/" method="GET">
+	      <i class="fa fa-search"></i>
+	      <input type="text" class="" placeholder="search" name="q" id="id_q" value="{{q}}">
+			</form>
+		</aside><!--END .search-bar-search-page -->
+
+		<section class="search-results-container">
+
+			<h1 class="headline search-results-header">Search Results</h1>
+			
+			<div id="results-count"><i class="fa fa-info-circle"></i> Your search for "{{ q }}" returned {{ searchcount }} result{{  searchcount|pluralize }}.</div>
+			
+			<section class="search search1">
+
+				{% load user_agents %}
+
+	      {% if downloads|length > 0 %}
+
+				<div class="search-results-tag">Downloads</div>
+				
+				{% for result in downloads %}
+
+	      <div class='search2'>
+
+		      <div class="search-results-tag-2">{{ result.object.name }} </div>
+
+		        {% for product in result.object.category.all %}
+					  {% if product.name == "RMS Coach" and mti_prod in result.object.producer.all %}
+					  {% else %}
+
+		        <a class="search-results search-result-box box-2 search-results-product" href="
+								{% if product.static_link %}
+								  {{ product.static_link }}
+								{% else %}
+									{% if request|is_mobile %}
+
+									  {% if mobplatform == "iPhone" %}
+										{% if product.mobile_link %}
+										  {{ product.mobile_link }}
+										{% else %}
+		                	/products/{{ product.name }}
+										{% endif %}
+									  {% elif mobplatform == "Android" %}
+										{% if product.mobile_link2 %}
+										  {{ product.mobile_link2 }}
+										{% else %}
+										  /products/{{ product.name }}
+										{% endif %}
+									  {% endif %}
+
+									{% else %}
+
+									  {% if platform == "Windows" %}
+										{% if product.download_link %}
+										  {{ product.download_link }}
+										{% else %}
+										  /products/{{ product.name }}
+										{% endif %}
+									  {% elif platform == "Mac" %}
+										{% if product.mac_link %}
+										  {{ product.mac_link }}
+										{% else %}
+										  /products/{{ product.name }}
+										{% endif %}
+									  {% endif %}
+								  {% endif %}
+
+								{% endif %}"--><i class="fa fa-download" style="margin: 0px 8px 0px 8px"></i>{{ product.name }}
+								{% if result.object.producer.all|length > 0 %}
+								 | {% for producer in result.object.producer.all %}
+									{{ producer.name }}{% if not forloop.last %} | {%endif%}
+								   {% endfor %}
+								{% endif %}</a>
+
+							  {% endif %}
+	          {% endfor %}
+
+						</div>
+					{% endfor %}
+				{% endif %}
+
+	      {% if searchproducts|length > 0 %}
+				<div class="search-results-tag">Products</div>
+					{% for result in searchproducts %}
+		      <a href="{{ result.object.get_absolute_url }}" class="search-results search-result-box search-results-product">
+						{% if result.object.name %}
+			      <div class="search-results-name">{{ result.object.name }}</div>
+						{% else %}
+						{% if result.object.title %}
+			      <div class="search-results-title">{{ result.object.title }}</div>
+						{% else %}
+			      <div class="search-results-question">{{ result.object.question }}</div>
+						{% endif %}
+						{% endif %}
+					</a>
+					{% endfor %}
+				{% endif %}
+
+	      {% if productdownloads|length > 0 %}
+
+				<div class="search-results-tag">Downloads</div>
+		        {% for product in productdownloads %}
+					  {% if product.name == "RMS Coach" and mti_prod in result.object.producer.all %}
+					  {% else %}
+		        <a class="search-results search-result-box box-2 search-results-product" href="
+								{% if product.static_link %}
+								  {{ product.static_link }}
+								{% else %}
+									{% if request|is_mobile %}
+
+									  {% if mobplatform == "iPhone" %}
+										{% if product.mobile_link %}
+										  {{ product.mobile_link }}
+										{% else %}
+		                	/products/{{ product.name }}
+										{% endif %}
+									  {% elif mobplatform == "Android" %}
+										{% if product.mobile_link2 %}
+										  {{ product.mobile_link2 }}
+										{% else %}
+										  /products/{{ product.name }}
+										{% endif %}
+									  {% endif %}
+
+									{% else %}
+
+									  {% if platform == "Windows" %}
+										{% if product.download_link %}
+										  {{ product.download_link }}
+										{% else %}
+										  /products/{{ product.name }}
+										{% endif %}
+									  {% elif platform == "Mac" %}
+										{% if product.mac_link %}
+										  {{ product.mac_link }}
+										{% else %}
+										  /products/{{ product.name }}
+										{% endif %}
+									  {% endif %}
+								  {% endif %}
+
+								{% endif %}"--><i class="fa fa-download" style="margin: 0px 8px 0px 8px"></i>{{ product.name }}
+								{% if result.object.producer.all|length > 0 %}
+								 | {% for producer in result.object.producer.all %}
+									{{ producer.name }}{% if not forloop.last %} | {%endif%}
+								   {% endfor %}
+								{% endif %}</a>
+
+							  {% endif %}
+		          {% endfor %}
+
+						{% comment %}
+							{% for result in productdownloads %}
+				      <a href="{{ result.documentation|striptags }}" class="search-results search-result-box search-results-product">
+					      <div class="search-results-name">{{ result.name }} Documentation</div>
+							</a>
+							{% endfor %}
+						{% endcomment %}
+
+		      {% endif %}
+
+		      {% if productdownloads|length > 0 %}
+					<div class="search-results-tag">Documentation</div>
+						{% for result in productdownloads %}
+			      <a href="{{ result.documentation|striptags }}" class="search-results search-result-box search-results-product">
+				      <div class="search-results-name">{{ result.name }} Documentation</div>
+						</a>
+						{% endfor %}
+		      {% endif %}
+
+
+					{% comment %}
+		      {% if flatpages|length > 0 %}
+					<div class="search-results-tag">Pages</div>
+						{% for result in flatpages %}
+
+					{% endfor %}
+					{% endif %}
+					{% endcomment %}
+
+		      {% if faqs|length > 0 %}
+					<div class="search-results-tag">Frequently Asked Questions</div>
+						{% for result in faqs %}
+		        <a href="{{ result.object.get_absolute_url }}" class="search-result-box search-results-faq"
+		        {% if result.object.mp3 %} target="_blank"{% endif %}>
+		        {% if result.object.name %}
+		                <div class="search-results-name">{{ result.object.name }}</div>
+		        {% else %}
+		        {% if result.object.title %}
+		                <div class="search-results-title">{{ result.object.title }}</div>
+		        {% else %}
+		                <div class="search-results-question">{{ result.object.question }}</div>
+		        {% endif %}
+		        {% endif %}
+						</a>
+						{% endfor %}
+					{% endif %}
+
+		      {% if news|length > 0 %}
+					<div class="search-results-tag">News</div>
+						{% for result in news %}
+		        <a href="{{ result.object.get_absolute_url }}" class="search-results search-result-box search-results-news"
+		        {% if result.object.mp3 %} target="_blank"{% endif %}>
+		        {% if result.object.name %}
+		                <div class="search-results-name">{{ result.object.name }}</div>
+		        {% else %}
+		        {% if result.object.title %}
+		                <div class="search-results-title">{{ result.object.title }}</div>
+		        {% else %}
+		                <div class="search-results-question">{{ result.object.question }}</div>
+		        {% endif %}
+		        {% endif %}
+		                <div class="search-results-eyebrow">{{result.object.pub_date|date:"Y"}} News</div>
+		        </a><!--END .search-results-news-->
+
+						{% endfor %}
+					{% endif %}
+
+					{% if searchcount == 0 %}
+						<p>No results found.</p>
+					{% endif %}
+
+					</div>
+
+				</section><!--END .section section1 -->
+
+			</section><!--END .search-results-container -->
+
+	</section><!--END #search-container -->
+
+</body>
+
+</html>
+
+{% endblock %}

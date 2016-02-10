@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+Design by Free CSS Templates
+http://www.freecsstemplates.org
+Released for free under a Creative Commons Attribution 2.5 License
+
+Name       : Programme     
+Description: A two-column, fixed-width design with dark color scheme.
+Version    : 1.0
+Released   : 20100707
+
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>RMS Keyboards
+<title>RMS Coach® Manual - Quickstart</title>
+<sup>&reg;</sup> Manual - Introduction</title>
+<link href="style.css" rel="stylesheet" type="text/css" media="screen" />
+<script type="text/javascript">
+<!--
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+//-->
+</script>
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script-->
+<script src="jquery.js"></script>
+<script>
+$(function () {
+  
+  var msie6 = $.browser == 'msie' && $.browser.version < 7;
+  
+  if (!msie6) {
+    var top = $('#sidebar').offset().top - parseFloat($('#sidebar').css('margin-top').replace(/auto/, 0));
+    $(window).scroll(function (event) {
+      // what the y position of the scroll is
+      var y = $(this).scrollTop();
+      
+      // whether that's below the form
+      if (y >= top) {
+        // if so, ad the fixed class
+        $('#sidebar').addClass('fixed');
+      } else {
+        // otherwise remove it
+        $('#sidebar').removeClass('fixed');
+      }
+    });
+  }  
+});
+</script>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-22592324-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</head>
+<body>
+<div id="wrapper">
+  <div id="header-wrapper">
+    <div id="header">
+      <div id="logo">
+        <h1><a href="index.html">RMS Coach<sup>&reg;</sup></a></h1>
+        <p> <a href="http://www.rms.biz">Realtime Music Solutions, LLC</a></p>
+      </div>
+      <div id="menu">
+        <ul>
+          <li><a href="index.html">Introduction</a></li>
+          <li><a href="installation.html">Installation</a></li>
+          <li class="current_page_item"><a href="quickstart.html">Quick Start</a></li>
+          <li><a href="interfaceediting.html">Interface/Editing</a></li>
+          <li><a href="menus.html">Menus</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- end #header -->
+  <div id="page-wrapper">
+    <div id="page">
+      <div id="page-bgtop">
+        <div id="page-bgbtm">
+          <div id="content">
+            <div class="post">
+              <h2 class="title"><a href="#">Quick Start</a></h2>
+              <div class="entry">
+                <p>Now that you have RMS Coach® fully installed, let's explore the robust features available at your fingertips!</p>
+                <h3 class="title"><a name="interfaceoverview" id="interfaceoverview"></a>Interface Overview</h3>
+                <p><a href="images/interface.png" target="_new"><img src="images/interfacesmall.png" width="530" height="335" alt="interface" /></a></p>
+                <ol>
+                  <li>Metronome - Activating this icon turns on a metronome click during playback.</li>
+                  <li>Meter - Shows the current meter at the playback marker (the red line) in the Timeline.</li>
+                  <li>Position - Shows the current position of the playback marker, by measure number and beat.</li>
+                  <li>Transport - Controls for starting and stopping playback.</li>
+                  <li>Tempo - Shows the programmed tempo and tap rhythm as well as the user defined tempo and tap rhythm. You can push the circular arrow key to revert to default.</li>
+                  <li>Key - Allows the user to quickly move the key of the song up or down, and you can use the circular arrow key to revert to default.</li>
+                  <li>Timeline - Shows a general overview of the form of the song, as well as the current position and any edits made to the form, such as (cuts, vamps, attaccas, etc).</li>
+                  <li>Songs - Shows the list of songs for the given show. If you are in trial mode, unavailable songs will be grayed out.</li>
+                  <li>Parts - A list of vocal parts for the selected song, as well as an accompaniment piano track. Parts can be muted or assigned different instruments, or made softer or louder.</li>
+                  <li>Markers - A list of significant spots within the current song and their position, allowing for quick jumps within the song.</li>
+                </ol>
+                <h3 class="title"><a name="basicsofuse" id="basicsofuse"></a>Basics of Use</h3>
+                <p>RMS Coach® is designed for intuitive use, but with a depth of customization for more advanced users. If you want to learn more about these features, jump to the <a href="interfaceediting.html">INTERFACE AND EDITING</a> section of the manual.</p>
+                <p>Click the Play button to start music, or hit the Spacebar in rhythm to set a tempo yourself. Click on other songs or markers to navigate to different areas of the score. Or double click in the timeline to jump to a different part of the song. Adjust the part faders to bring them up or down in volume. Adjust the tempo slider to speed up or slow down playback.</p>
+                <h3 class="title"><a name="tapcontrols" id="tapcontrols"></a>Tap Controls</h3>
+                <p>RMS Coach® v2 adds a powerful new tool familiar to users of Sinfonia® - the ability to &quot;play&quot; the music live, in a tempo of your choosing!</p>
+                <p>By tapping the spacebar at your desired tempo, as you would a piano, you propel the song according to your individual interpretation. The process is analogous to conducting in the traditional sense; as you beat time, RMS Coach® responds. You can speed up and slow down to follow the performers. You can create deep rubato passages or taut accelerandos. 'Playing' is an essential way to breathe life into your rehearsals with RMS Coach®.</p>
+                <p>Try playing a song in tempo. To start, simply navigate the playback cursor to where you want to play from, and tap the Spacebar in rhythm to have to software follow along. To know what rhythm you should be playing, look at the note value next to the tempo indication along the top of the program window. This tells you if you should tap along in quarter notes, or eighth notes, or whatever note value is appropriate for that measure of music.</p>
+                <p><img src="images/temponotevalue.png" width="177" height="93" alt="temponotevalue" /></p>
+                <p>When you &quot;play&quot; RMS Coach®, tempo changes are immediate and you can start and stop on a dime, just like you would if you were playing any other musical instrument. It may take a minute to get a feel for this! But like anything, practice makes perfect. </p>
+                <p><em>Note that you can trigger automatic playback by pressing the play button with the mouse or by pressing the F8 key.</em></p>
+                <h3 class="title"><a name="shortcuts" id="shortcuts"></a>Shortcuts</h3>
+                <p>RMS Coach® comes with a default set of shortcuts to make navigation and control easy.<br />
+                </p>
+                <table width="300" border="1">
+                  <tr>
+                    <th width="124" scope="col">Key</th>
+                    <th width="160" scope="col">Function</th>
+                  </tr>
+                  <tr>
+                    <td>Spacebar</td>
+                    <td>Tap in tempo</td>
+                  </tr>
+                  <tr>
+                    <td>F1</td>
+                    <td>MIDI reset</td>
+                  </tr>
+                  <tr>
+                    <td>F2</td>
+                    <td>(Unassigned)</td>
+                  </tr>
+                  <tr>
+                    <td>F3</td>
+                    <td>Slower</td>
+                  </tr>
+                  <tr>
+                    <td>F4</td>
+                    <td>Faster</td>
+                  </tr>
+                  <tr>
+                    <td>F5</td>
+                    <td>A Tempo</td>
+                  </tr>
+                  <tr>
+                    <td>F6</td>
+                    <td>Rewind/Previous Song</td>
+                  </tr>
+                  <tr>
+                    <td>F7</td>
+                    <td>Previous Marker</td>
+                  </tr>
+                  <tr>
+                    <td>F8</td>
+                    <td>Go</td>
+                  </tr>
+                  <tr>
+                    <td>F9</td>
+                    <td>Stop</td>
+                  </tr>
+                  <tr>
+                    <td>F10</td>
+                    <td>Next Marker</td>
+                  </tr>
+                  <tr>
+                    <td>F11</td>
+                    <td>Next Song</td>
+                  </tr>
+                  <tr>
+                    <td>F12</td>
+                    <td>Exit Vamp</td>
+                  </tr>
+                  <tr>
+                    <td>Page Up</td>
+                    <td>Previous Song</td>
+                  </tr>
+                  <tr>
+                    <td>Page Down</td>
+                    <td>Next Song</td>
+                  </tr>
+                </table>
+                <p><br />
+                </p>
+                <h3 class="title"><a name="navigation" id="navigation"></a>Navigation</h3>
+                <p>You can jump to any song, marker or position within the Timeline by simply clicking on the desired spot.</p>
+                <p>You can also jump to a specific measure number or marker by simply typing on the keyboard. When you start typing using the alphanumeric keys, a &quot;Go to…&quot; dialogue will pop up. Once you have entered the measure number or marker name, hit the return key once to &quot;arm&quot; the relocation, and then hit the return key again to jump to that spot.</p>
+                <p><img src="images/gotoARMED.png" width="428" height="128" alt="goto" /></p>
+                <p>RMS Coach® has the ability to dynamically recognize marker locations and will autocomplete as you type. This often allows you to jump to a specific spot with only a few keystrokes.</p>
+                <h3 class="title"><a name="sharingshowdata" id="sharingshowdata"></a>Sharing Your Showdata</h3>
+                <p>RMS Coach® provides an easy and powerful new way to share edits with other members of your production. Under the &quot;Tools&quot; menu there is an option to &quot;Share Show Data&quot;. Currently the only method is to share via Email, but future versions of RMS Coach® will provide alternate methods of sharing show data.</p>
+                <p><img src="images/shareshowdata.png" width="239" height="154" alt="shareshowdata" /></p>
+                <p>Clicking &quot;OK&quot; will automatically open up your default email client and attach a copy of the current show to an email with basic instructions on loading the file. All you have to do is put in the email addresses of your team and hit &quot;send&quot;.</p>
+                <p><em>Please note that this is not compatible with browser-based email. To share show data using a browser, you will need to use File-&gt;'Save As' to export a version of your show to a folder, then attach that file to an email manually. Be sure to include instructions on how to load the file!</em></p>
+              </div>
+            </div>
+            <div style="clear: both;">&nbsp;</div>
+          </div>
+          <!-- end #content -->
+          <div id="sidebar-wrapper">
+            <div id="sidebar">
+              <ul>
+                <!--li>
+                  <div id="search" >
+                    <form method="get" action="#">
+                      <div>
+                        <input type="text" name="s" id="search-text" value="" />
+                        <input type="submit" id="search-submit" value="GO" />
+                      </div>
+                    </form>
+                  </div>
+                  <div style="clear: both;">&nbsp;</div>
+                </li-->
+                <li>
+                  <h2>QUICKSTART</h2>
+                  <ul>
+                    <li><a href="#interfaceoverview">Interface Overview</a></li>
+                    <li><a href="#basicsofuse">Basics of Use</a></li>
+                    <li><a href="#tapcontrols">Tap Controls</a></li>
+                    <li><a href="#shortcuts">Shortcuts</a></li>
+                    <li><a href="#navigation">Navigation</a></li>
+                    <li><a href="#sharingshowdata">Sharing Your Showdata</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <h2>Contact</h2>
+                  <p> <a href="http://www.rms.biz">Realtime Music Solutions, LLC</a><br />
+(212) 620-0774 <br />
+<a href="http://www.realtimemusic.biz/contact/">Email us</a></p>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+          <!-- end #sidebar -->
+          <div style="clear: both;">&nbsp;</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end #page --> 
+</div>
+<div id="footer">
+  <p>Copyright (c) <script type="text/javascript">var year = new Date();document.write(year.getFullYear());</script> Realtime Music Solutions, LLC. All rights reserved. Design by <a href="http://www.freecsstemplates.org/"> CSS Templates</a>.</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
